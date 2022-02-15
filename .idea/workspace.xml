@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blockly_compressed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lib/blockly_compressed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blockly_compressed.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lib/blockly_compressed.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +70,8 @@
       <recent name="$PROJECT_DIR$/project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alema\Desktop\Tirocinio\blockly2scafi\src\main\resources\config" />
+      <recent name="C:\Users\alema\Desktop\Tirocinio\blockly2scafi\src\main\resources\lib" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>

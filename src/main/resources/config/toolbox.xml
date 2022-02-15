@@ -1,0 +1,69 @@
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+  <category name="Aggregate" colour="#a5745b">
+    <block type="string">
+      <field name="STRING_VALUE"></field>
+    </block>
+    <block type="output"></block>
+    <block type="integer">
+      <field name="INTEGER_VALUE">0</field>
+    </block>
+    <block type="boolean">
+      <field name="BOOLEAN_VALUE">true</field>
+    </block>
+    <block type="sense"></block>
+    <block type="double">
+      <field name="VALUE">NaN</field>
+    </block>
+    <block type="tuple"></block>
+    <block type="channel"></block>
+    <block type="distance_to">
+      <value name="SRC">
+        <block type="number_compare">
+          <field name="OPERATOR">GREATER</field>
+        </block>
+      </value>
+    </block>
+    <block type="number_operation">
+      <field name="OPERATOR">ADDITION</field>
+    </block>
+    <block type="random"></block>
+    <block type="led_all_to"></block>
+    <block type="mux">
+      <value name="SECOND_BRANCH">
+        <block type="distance_between"></block>
+      </value>
+    </block>
+    <block type="boolean_operation">
+      <field name="OPERATOR">and</field>
+    </block>
+    <block type="other_type">
+      <field name="TYPE"></field>
+    </block>
+    <block type="type">
+      <field name="TYPE"></field>
+    </block>
+    <block type="string">
+      <field name="STRING_VALUE"></field>
+    </block>
+    <block type="getter">
+      <field name="NAME"></field>
+    </block>
+    <block type="color">
+      <field name="COLOR">#ffff00</field>
+    </block>
+    <block type="define">
+      <field name="NAME">x</field>
+    </block>
+    <block type="mid"></block>
+    <block type="foldhood"></block>
+    <block type="foldhoodplus"></block>
+    <block type="nbr"></block>
+    <block type="rep">
+      <field name="PREVIOUS" id="YOGzC9m4^a)NXP#DEq~.">x</field>
+    </block>
+    <block type="aggregate_program"></block>
+  </category>
+  <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+  <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+  <sep></sep>
+</xml>
