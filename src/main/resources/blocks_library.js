@@ -1,16 +1,3 @@
-function loadConfigurationFromJsonFile(jsonFilePath) {
-    // Make a sync get request with XHTTP
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', jsonFilePath, false);
-    xhr.send(null);
-    return JSON.parse(xhr.responseText);
-
-}
-
-const blocks = loadConfigurationFromJsonFile("config/library.json")
-Blockly.defineBlocksWithJsonArray(blocks)
-
-
 /*
 function updateBlockOutputType(block, types) {
     const blockCheck = block.outputConnection.getCheck()

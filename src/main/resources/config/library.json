@@ -24,7 +24,6 @@
     }
   ],
   "previousStatement": null,
-  "nextStatement": null,
   "colour": 230,
   "tooltip": "Output a value",
   "helpUrl": ""
@@ -191,7 +190,7 @@
   "args0": [
     {
       "type": "field_number",
-      "name": "VALUE",
+      "name": "DOUBLE_VALUE",
       "value": 0.1,
       "precision": null
     }
@@ -303,7 +302,7 @@
   "args0": [
     {
       "type": "field_colour",
-      "name": "COLOR",
+      "name": "COLOR_VALUE",
       "colour": "#ffff00"
     }
   ],
@@ -318,7 +317,7 @@
   "args0": [
     {
       "type": "field_label_serializable",
-      "name": "TYPE",
+      "name": "TYPE_VALUE",
       "text": ""
     }
   ],
@@ -333,7 +332,7 @@
   "args0": [
     {
       "type": "field_input",
-      "name": "TYPE",
+      "name": "OTHER_TYPE_VALUE",
       "text": ""
     }
   ],

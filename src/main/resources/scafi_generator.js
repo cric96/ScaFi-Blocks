@@ -15,72 +15,105 @@ scafiGenerator.ORDER_LOGICAL_OR = 14; // ||&&
 scafiGenerator.ORDER_ASSIGNMENT = 20; // =
 scafiGenerator.ORDER_NONE = 99;
 
+function extractValue(fieldName, prepend = "", append = "", order = scafiGenerator.ORDER_ATOMIC) {
+    return (block) => [prepend + block.getFieldValue(fieldName) + append, order];
+};
 
+function extractValues(fieldNames, join, prepend = "", append = "", order = scafiGenerator.ORDER_ATOMIC) {
+    return function(block) {
+        let code = fieldNames.map(fieldName => extractValue(fieldName)(block)[0]);
+        return [prepend + code.join(join) + append, order];
+    }
+}
+
+function extractCode(fieldName, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_FUNCTION_CAL) {
+    return (block) => [prepend + Blockly.ScaFi.valueToCode(block, fieldName, internalOrder) + append, externalOrder];
+}
+
+function extractCodes(fieldNames, join, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_FUNCTION_CALL) {
+    return function(block) {
+        let code = fieldNames.map(fieldName => extractCode(fieldName)(block)[0]);
+        return [prepend + code.join(join) + append, externalOrder];
+    }
+}
+
+/* AGGREGATE PROGRAM BLOCK */
 scafiGenerator['aggregate_program'] = function(block) {
-    const import_map = {
+
+    const standardImportMap = {
+        "random": ["java.util.Random"]
+    }
+
+    const scafiImportMap = {
         "distance_to": ["StandardSensors", "BlockG"],
         "distance_between": ["StandardSensors", "BlockG"],
         "channel": ["StandardSensors", "BlockG"],
-        "led_all_to": "Actuation",
+        "led_all_to": ["Actuation"],
     }
-    let importArray = [];
-    let import_code = "";
+
+    let standardImportArray = [];
+    let scafiImportArray = [];
 
     const workspace = block.workspace;
     const allBlocks = workspace.getAllBlocks();
+
     for (const block of allBlocks) {
-        if (block.type in import_map) {
-            let modules = import_map[block.type];
-            if (!Array.isArray(modules)) modules = [modules];
+        if (block.type in standardImportArray) {
+            let modules = standardImportMap[block.type];
             for (const module of modules) {
-                if (!importArray.includes(module)) {
-                    importArray.push(module);
+                if (!standardImportArray.includes(module)) {
+                    standardImportArray.push(module);
+                }
+            }
+        }
+        if (block.type in scafiImportMap) {
+            let modules = scafiImportMap[block.type];
+            for (const module of modules) {
+                if (!scafiImportArray.includes(module)) {
+                    scafiImportArray.push(module);
                 }
             }
         }
     }
-    if (importArray.length) {
-        import_code = "//using " + importArray.join(", ") + "\n";
+
+    let standardImportCode = standardImportArray.map(module => "import " + module + ";").join("\n");
+    let scafiImportCode = "";
+
+    if (scafiImportArray.length > 0) {
+        scafiImportCode = "//using " + scafiImportArray.join(", ") + "\n";
     }
 
     const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock("AGGREGATE_PROGRAM_MAIN")); //Not using statementToCode to avoid first INDENT
 
-    return import_code + otherCode;
+    return standardImportCode + scafiImportCode + otherCode;
 }
 
 
-scafiGenerator['output'] = function(block) {
-    return Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.ORDER_NONE);
-}
 
-scafiGenerator['string'] = function(block) {
-    return ['"' + block.getFieldValue('STRING_VALUE') + '"', 0];
-}
+// Types
+scafiGenerator['tuple'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
+scafiGenerator['string'] = extractValue('STRING_VALUE', '"', '"')
+scafiGenerator['integer'] = extractValue('INTEGER_VALUE')
+scafiGenerator['boolean'] = extractValue('BOOLEAN_VALUE')
+scafiGenerator['double'] = extractValue('DOUBLE_VALUE')
+scafiGenerator['color'] = extractValue('COLOR_VALUE', '"', '"')
+scafiGenerator['type'] = extractValue('TYPE_VALUE')
+scafiGenerator['other_type'] = extractValue('OTHER_TYPE_VALUE')
 
-scafiGenerator['integer'] = function(block) {
-    const code = block.getFieldValue('INTEGER_VALUE').toString();
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['double'] = function(block) {
-    const code = block.getFieldValue('VALUE').toString();
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['boolean'] = function(block) {
-    const code = block.getFieldValue('BOOLEAN_VALUE');
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['tuple'] = function(block) {
-    const values = [
-        Blockly.ScaFi.valueToCode(block, "VALUE_1", scafiGenerator.ORDER_ATOMIC),
-        Blockly.ScaFi.valueToCode(block, "VALUE_2", scafiGenerator.ORDER_ATOMIC)
-    ];
-
-    const code = "(" + values[0] + "," + values[1] + ")"
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
+/* FUNCTIONS */
+scafiGenerator['getter'] = extractValue('NAME')
+scafiGenerator['output'] = (block) => extractCode('OUTPUT_VALUE')(block)[0];
+scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
+scafiGenerator['sense'] = extractCode("SENSOR_NAME", "sense(", ")", scafiGenerator.ORDER_FUNCTION_CALL)
+scafiGenerator['led_all_to'] = extractValue('COLOR_VALUE', 'ledAll to ', '', scafiGenerator.ORDER_FUNCTION_CALL)
+scafiGenerator['distance_to'] = extractCode("SRC", "distanceTo(", ")", scafiGenerator.ORDER_ATOMIC)
+scafiGenerator['distance_between'] = extractCodes(["SOURCE", "TARGET", ", ", "distanceBetween(", ")", scafiGenerator.ORDER_ATOMIC])
+scafiGenerator['channel'] = extractCodes(["SOURCE", "TARGET", "WIDTH"], ", ", "channel(", ")", scafiGenerator.ORDER_ATOMIC)
+scafiGenerator['mux'] = (block) => [
+    extractCode("CONDITION", "mux(", ")")(block)[0] +
+    extractCodes(["FIRST_BRANCH", "SECOND_BRANCH"], "\n}{\n\t", " {\n\t", "\n}")(block)[0],
+    scafiGenerator.ORDER_FUNCTION_CALL
+]
 
 scafiGenerator['boolean_operation'] = function(block) {
     const operation = block.getFieldValue("OPERATION");
@@ -101,7 +134,6 @@ scafiGenerator['boolean_operation'] = function(block) {
 
     return [code, order];
 }
-
 scafiGenerator['number_compare'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
 
@@ -132,7 +164,6 @@ scafiGenerator['number_compare'] = function(block) {
 
     return [code, order];
 }
-
 scafiGenerator['number_operation'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
 
@@ -160,28 +191,6 @@ scafiGenerator['number_operation'] = function(block) {
     return [code, order];
 }
 
-
-scafiGenerator['mid'] = function(block) {
-    return ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
-}
-scafiGenerator['sense'] = function(block) {
-    const sensor = Blockly.ScaFi.valueToCode(block, 'SENSOR_NAME', scafiGenerator.ORDER_ATOMIC);
-    const code = 'sense(' + sensor + ')';
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-scafiGenerator['mux'] = function(block) {
-    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.ORDER_ATOMIC);
-    const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.ORDER_ATOMIC);
-    const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.ORDER_ATOMIC);
-    let code = 'mux(' + condition + '){\n';
-    code += scafiGenerator.prefixLines(firstBranch, scafiGenerator.INDENT) + '\n';
-    code += '}{\n';
-    code += scafiGenerator.prefixLines(secondBranch, scafiGenerator.INDENT) + '\n';
-    code += '}';
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
-
 scafiGenerator['define'] = function(block) {
     const defName = block.getFieldValue('NAME');
     const input = block.getInput('VALUE');
@@ -199,7 +208,6 @@ scafiGenerator['define'] = function(block) {
     code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_ASSIGNMENT);
     return code;
 }
-
 scafiGenerator['val'] = function(block) {
     const defName = block.getFieldValue('NAME');
     const input = block.getInput('VALUE');
@@ -218,48 +226,6 @@ scafiGenerator['val'] = function(block) {
     return code;
 }
 
-scafiGenerator['getter'] = function(block) {
-    return [block.getFieldValue('NAME'), scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['distance_to'] = function(block) {
-    const code = "distanceTo(" + Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.ORDER_ATOMIC) + ")";
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-scafiGenerator['distance_between'] = function(block) {
-    const code = "distanceBetween(" +
-        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ORDER_ATOMIC) + ", " +
-        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ORDER_ATOMIC) +
-        ")";
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-scafiGenerator['channel'] = function(block) {
-    const code = "channel(" +
-        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ORDER_ATOMIC) + ", " +
-        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ORDER_ATOMIC) + ", " +
-        Blockly.ScaFi.valueToCode(block, "WIDTH", scafiGenerator.ORDER_ATOMIC) +
-        ")";
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-scafiGenerator['led_all_to'] = function(block) {
-    const code = "ledAll to " + Blockly.ScaFi.valueToCode(block, "COLOR", scafiGenerator.ORDER_ATOMIC);
-    return [code, scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['color'] = function(block) {
-    return ['"' + block.getFieldValue('COLOR') + '"', scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['type'] = function(block) {
-    return [block.getFieldValue("TYPE"), scafiGenerator.ORDER_ATOMIC];
-}
-
-scafiGenerator['other_type'] = function(block) {
-    return [block.getFieldValue("TYPE"), scafiGenerator.ORDER_ATOMIC];
-}
 
 
 //scrub_ is the common tasks for generating code from blocks, called on every block.
