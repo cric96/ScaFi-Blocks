@@ -30,60 +30,6 @@
   "helpUrl": ""
 },
 {
-  "type": "string",
-  "message0": "\" %1 \"",
-  "args0": [
-    {
-      "type": "field_input",
-      "name": "STRING_VALUE",
-      "text": ""
-    }
-  ],
-  "output": "String",
-  "colour": 165,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "integer",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_label_serializable",
-      "name": "TYPE",
-      "text": "Integer"
-    }
-  ],
-  "output": null,
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "boolean",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_dropdown",
-      "name": "BOOLEAN_VALUE",
-      "options": [
-        [
-          "true",
-          "true"
-        ],
-        [
-          "false",
-          "false"
-        ]
-      ]
-    }
-  ],
-  "output": "Boolean",
-  "colour": 210,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
   "type": "sense",
   "message0": "Sense %1 %2",
   "args0": [
@@ -105,24 +51,6 @@
   "helpUrl": ""
 },
 {
-  "type": "tuple",
-  "message0": "( %1 , %2 )",
-  "args0": [
-    {
-      "type": "input_value",
-      "name": "VALUE_1"
-    },
-    {
-      "type": "input_value",
-      "name": "VALUE_2"
-    }
-  ],
-  "output": "Tuple",
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
   "type": "mux",
   "message0": "Mux %1 First %2 Second %3",
   "args0": [
@@ -132,15 +60,15 @@
       "check": "Boolean"
     },
     {
-      "type": "input_value",
+      "type": "input_statement",
       "name": "FIRST_BRANCH"
     },
     {
-      "type": "input_value",
+      "type": "input_statement",
       "name": "SECOND_BRANCH"
     }
   ],
-  "inputsInline": false,
+  "inputsInline": true,
   "output": null,
   "colour": 210,
   "tooltip": "",
@@ -181,22 +109,6 @@
   "inputsInline": true,
   "output": "Boolean",
   "colour": 210,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "double",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_number",
-      "name": "VALUE",
-      "value": 0.1,
-      "precision": null
-    }
-  ],
-  "output": "Double",
-  "colour": 260,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -681,6 +593,133 @@
   ],
   "inputsInline": true,
   "output": "Class",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "string_value",
+  "message0": "\" %1 \"",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "VALUE",
+      "text": ""
+    }
+  ],
+  "output": "String",
+  "colour": 165,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "integer_value",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "VALUE",
+      "text": "1"
+    }
+  ],
+  "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "boolean_value",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "VALUE",
+      "options": [
+        [
+          "true",
+          "true"
+        ],
+        [
+          "false",
+          "false"
+        ]
+      ]
+    }
+  ],
+  "output": "Boolean",
+  "colour": 210,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "double_value",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_number",
+      "name": "VALUE",
+      "value": 0.1,
+      "precision": null
+    }
+  ],
+  "output": "Double",
+  "colour": 260,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "tuple_value",
+  "message0": "( %1 , %2 )",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VALUE_1"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE_2"
+    }
+  ],
+  "output": "Tuple",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "color_value",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_colour",
+      "name": "VALUE",
+      "colour": "#ffff00"
+    }
+  ],
+  "output": "Color",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "branch",
+  "message0": "Branch %1 First %2 Second %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "CONDITION",
+      "check": "Boolean"
+    },
+    {
+      "type": "input_statement",
+      "name": "FIRST_BRANCH"
+    },
+    {
+      "type": "input_statement",
+      "name": "SECOND_BRANCH"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""

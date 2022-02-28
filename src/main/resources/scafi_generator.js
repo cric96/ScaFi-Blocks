@@ -97,24 +97,24 @@ scafiGenerator['sense'] = (block) => {
     return [code, scafiGenerator.ORDER_FUNCTION_CALL];
 }
 
+
+// Classes
 scafiGenerator['class_integer'] = extractValue('NAME')
 scafiGenerator['class_double'] = extractValue('NAME')
 scafiGenerator['class_boolean'] = extractValue('NAME')
 scafiGenerator['class_string'] = extractValue('NAME')
 scafiGenerator['class_other'] = extractValue('NAME')
-    // Types
 
-scafiGenerator['tuple'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
+// Values
+scafiGenerator['integer_value'] = extractValue('VALUE')
+scafiGenerator['double_value'] = extractValue('VALUE')
+scafiGenerator['boolean_value'] = extractValue('VALUE')
+scafiGenerator['string_value'] = extractValue('VALUE', '"', '"')
+scafiGenerator['color_value'] = extractValue('VALUE', '"', '"')
+scafiGenerator['tuple_value'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
 
 
-
-scafiGenerator['string'] = extractValue('STRING_VALUE', '"', '"')
-scafiGenerator['integer'] = extractValue('INTEGER_VALUE')
-scafiGenerator['boolean'] = extractValue('BOOLEAN_VALUE')
-scafiGenerator['double'] = extractValue('DOUBLE_VALUE')
-scafiGenerator['color'] = extractValue('COLOR_VALUE', '"', '"')
-scafiGenerator['type'] = extractValue('TYPE_VALUE')
-scafiGenerator['other_type'] = extractValue('OTHER_TYPE_VALUE')
+// Types
 
 /* FUNCTIONS */
 scafiGenerator['getter'] = extractValue('NAME')
