@@ -1,11 +1,4 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-  <category name="Aggregate">
-    <block type="mux"></block>
-    <block type="sense"></block>
-    <block type="channel"></block>
-    <block type="aggregate_program"></block>
-    <block type="distance_to"></block>
-  </category>
   <category name="Basic">
     <block type="string">
       <field name="STRING_VALUE"></field>
@@ -13,10 +6,53 @@
     <block type="tuple"></block>
     <block type="output"></block>
     <block type="integer">
-      <field name="INTEGER_VALUE">0</field>
+      <field name="TYPE">Integer</field>
     </block>
     <block type="boolean">
       <field name="BOOLEAN_VALUE">true</field>
     </block>
   </category>
+  <category name="Aggregate">
+    <block type="mux"></block>
+    <block type="nbr"></block>
+    <block type="sense"></block>
+    <block type="channel"></block>
+    <block type="aggregate_program"></block>
+    <block type="rep">
+      <field name="PREVIOUS" id="yANW!y:.,l;R6;+zv.#?">x</field>
+    </block>
+    <block type="distance_to"></block>
+  </category>
+  <category name="Fold">
+    <block type="foldhood"></block>
+    <block type="foldhoodplus"></block>
+  </category>
+  <category name="Sensors">
+    <block type="sense"></block>
+  </category>
+  <category name="Actuators">
+    <block type="led_all_to"></block>
+    <block type="color">
+      <field name="COLOR">#ffff00</field>
+    </block>
+  </category>
+  <category name="Type">
+    <block type="class_integer">
+      <field name="NAME">Integer</field>
+    </block>
+    <block type="class_other">
+      <field name="NAME"></field>
+    </block>
+    <block type="class_double">
+      <field name="NAME">Double</field>
+    </block>
+    <block type="class_boolean">
+      <field name="NAME">Boolean</field>
+    </block>
+    <block type="class_string">
+      <field name="NAME">String</field>
+    </block>
+  </category>
+  <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+  <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
 </xml>

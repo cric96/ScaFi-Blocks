@@ -88,10 +88,26 @@ scafiGenerator['aggregate_program'] = function(block) {
     return standardImportCode + scafiImportCode + otherCode;
 }
 
+scafiGenerator['output'] = (block) => extractCode('OUTPUT_VALUE')(block)[0];
 
+scafiGenerator['sense'] = (block) => {
+    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
+    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
+    const code = `sense[${type}](${name})`;
+    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
+}
 
-// Types
+scafiGenerator['class_integer'] = extractValue('NAME')
+scafiGenerator['class_double'] = extractValue('NAME')
+scafiGenerator['class_boolean'] = extractValue('NAME')
+scafiGenerator['class_string'] = extractValue('NAME')
+scafiGenerator['class_other'] = extractValue('NAME')
+    // Types
+
 scafiGenerator['tuple'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
+
+
+
 scafiGenerator['string'] = extractValue('STRING_VALUE', '"', '"')
 scafiGenerator['integer'] = extractValue('INTEGER_VALUE')
 scafiGenerator['boolean'] = extractValue('BOOLEAN_VALUE')
@@ -102,9 +118,8 @@ scafiGenerator['other_type'] = extractValue('OTHER_TYPE_VALUE')
 
 /* FUNCTIONS */
 scafiGenerator['getter'] = extractValue('NAME')
-scafiGenerator['output'] = (block) => extractCode('OUTPUT_VALUE')(block)[0];
 scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
-scafiGenerator['sense'] = extractCode("SENSOR_NAME", "sense(", ")", scafiGenerator.ORDER_FUNCTION_CALL)
+
 scafiGenerator['led_all_to'] = extractValue('COLOR_VALUE', 'ledAll to ', '', scafiGenerator.ORDER_FUNCTION_CALL)
 scafiGenerator['distance_to'] = extractCode("SRC", "distanceTo(", ")", scafiGenerator.ORDER_ATOMIC)
 scafiGenerator['distance_between'] = extractCodes(["SOURCE", "TARGET", ", ", "distanceBetween(", ")", scafiGenerator.ORDER_ATOMIC])
