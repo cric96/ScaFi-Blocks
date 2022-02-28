@@ -90,15 +90,8 @@ scafiGenerator['aggregate_program'] = function(block) {
 
 scafiGenerator['output'] = (block) => extractCode('OUTPUT_VALUE')(block)[0];
 
-scafiGenerator['sense'] = (block) => {
-    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
-    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
-    const code = `sense[${type}](${name})`;
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
 
-
-// Classes
+// Types
 scafiGenerator['class_integer'] = extractValue('NAME')
 scafiGenerator['class_double'] = extractValue('NAME')
 scafiGenerator['class_boolean'] = extractValue('NAME')
@@ -112,6 +105,18 @@ scafiGenerator['boolean_value'] = extractValue('VALUE')
 scafiGenerator['string_value'] = extractValue('VALUE', '"', '"')
 scafiGenerator['color_value'] = extractValue('VALUE', '"', '"')
 scafiGenerator['tuple_value'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
+
+
+
+
+
+
+scafiGenerator['sense'] = (block) => {
+    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
+    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
+    const code = `sense[${type}](${name})`;
+    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
+}
 
 
 // Types
