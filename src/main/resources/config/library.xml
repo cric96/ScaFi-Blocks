@@ -134,7 +134,7 @@
 </block><block type="factory_base" id="TJ=?zPkavN#/rmKRXN_P" deletable="false" movable="false" x="10" y="10">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">mux</field>
-    <field name="INLINE">INT</field>
+    <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">LEFT</field>
     <statement name="INPUTS">
       <block type="input_value" id="kjx`4ZMq^E4TxR{l.#~:">
@@ -150,7 +150,7 @@
           <block type="type_boolean" id="-7[Bt4mEsTN17jB0}Atz"></block>
         </value>
         <next>
-          <block type="input_statement" id="^q1RLKegDOmlT;f`M:d4">
+          <block type="input_value" id="OL-*3esZFextC2pE_h3v">
             <field name="INPUTNAME">FIRST_BRANCH</field>
             <field name="ALIGN">LEFT</field>
             <statement name="FIELDS">
@@ -159,19 +159,19 @@
               </block>
             </statement>
             <value name="TYPE">
-              <shadow type="type_null" id="`_MipSSa*JJ{MZBWr;nU"></shadow>
+              <shadow type="type_null" id=";N.bL2GIT*7==(d4NPD/"></shadow>
             </value>
             <next>
-              <block type="input_statement" id="@6cXuyXfoxGglwDbaLb-">
+              <block type="input_value" id="iO2Mmedpd:BC0kG|@2$x">
                 <field name="INPUTNAME">SECOND_BRANCH</field>
                 <field name="ALIGN">LEFT</field>
                 <statement name="FIELDS">
-                  <block type="field_static" id="a0:d{l7MnIg{-.jfZiUI">
+                  <block type="field_static" id="Ua`1I{ls)#!GJk)2An%*">
                     <field name="TEXT">Second</field>
                   </block>
                 </statement>
                 <value name="TYPE">
-                  <shadow type="type_null" id="KGtl0ZFSRV#}7):%;?2R"></shadow>
+                  <shadow type="type_null" id="lEzY;awPU6yV_F^i6HAT"></shadow>
                 </value>
               </block>
             </next>
@@ -1146,27 +1146,17 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">LEFT</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="^%hRPqW?eZ8WePdbJHsa">
+      <block type="input_value" id="Aua6lCP:.ndNIF7sHt-8">
+        <field name="INPUTNAME">EXPRESSION</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
-          <block type="field_static" id=".nn-x7V7T229O0s{}bu5">
+          <block type="field_static" id="OEz*RNybxm^*%![[?|;3">
             <field name="TEXT">NBR</field>
           </block>
         </statement>
-        <next>
-          <block type="input_statement" id="Y(`NEB~Uh9.ah1uG#8Gd">
-            <field name="INPUTNAME">EXPRESSION</field>
-            <field name="ALIGN">LEFT</field>
-            <statement name="FIELDS">
-              <block type="field_static" id="OEz*RNybxm^*%![[?|;3">
-                <field name="TEXT">Expression: </field>
-              </block>
-            </statement>
-            <value name="TYPE">
-              <shadow type="type_null" id="FKlx^K0%~kSuY9;4t$]2"></shadow>
-            </value>
-          </block>
-        </next>
+        <value name="TYPE">
+          <shadow type="type_null" id="0M:JG`QbIi!J;0gA%tTw"></shadow>
+        </value>
       </block>
     </statement>
     <value name="TOOLTIP">
@@ -1727,7 +1717,7 @@
   </block><block type="factory_base" id="]rIQj2bQ[4rALCz3a^8W" deletable="false" movable="false" x="10" y="10">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">branch</field>
-    <field name="INLINE">INT</field>
+    <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">LEFT</field>
     <statement name="INPUTS">
       <block type="input_value" id="BN%*QtRv0V,?-X,c]nwF">
@@ -1743,28 +1733,28 @@
           <block type="type_boolean" id="B/GvQ#gU.OZ~qXi=O0e,"></block>
         </value>
         <next>
-          <block type="input_statement" id="E*F+W5nhYz|_3FQVHgs9">
+          <block type="input_value" id="xAWR)}0ke;+y!OC1rlQ;">
             <field name="INPUTNAME">FIRST_BRANCH</field>
             <field name="ALIGN">LEFT</field>
             <statement name="FIELDS">
-              <block type="field_static" id="!,6leL1*XKjT*9zL[);,">
+              <block type="field_static" id="jK5H+8Ongv$lHftWAIMQ">
                 <field name="TEXT">First</field>
               </block>
             </statement>
             <value name="TYPE">
-              <shadow type="type_null" id="-UmUb=;LGLCd1}]bbCR2"></shadow>
+              <shadow type="type_null" id=":|YLSY2Qc+?TBuPC?Q0H"></shadow>
             </value>
             <next>
-              <block type="input_statement" id="c.c2|tmOG%DTSTIB-a3c">
+              <block type="input_value" id="FaC3Skuy[U:2?nNQgB(|">
                 <field name="INPUTNAME">SECOND_BRANCH</field>
                 <field name="ALIGN">LEFT</field>
                 <statement name="FIELDS">
-                  <block type="field_static" id="n)3Etgc!7MdkxZr~VNO?">
+                  <block type="field_static" id="DCpjZW#wHMx|C~!1Rp=J">
                     <field name="TEXT">Second</field>
                   </block>
                 </statement>
                 <value name="TYPE">
-                  <shadow type="type_null" id="#G$Vg8CaKpc}3@f,!rc4"></shadow>
+                  <shadow type="type_null" id="4grAZqnM~-2d?^swe0Cq"></shadow>
                 </value>
               </block>
             </next>

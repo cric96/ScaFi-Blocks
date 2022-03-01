@@ -15,18 +15,177 @@ scafiGenerator.ORDER_LOGICAL_OR = 14; // ||&&
 scafiGenerator.ORDER_ASSIGNMENT = 20; // =
 scafiGenerator.ORDER_NONE = 99;
 
-function extractValue(fieldName, prepend = "", append = "", order = scafiGenerator.ORDER_ATOMIC) {
-    return (block) => [prepend + block.getFieldValue(fieldName) + append, order];
-};
 
-function extractValues(fieldNames, join, prepend = "", append = "", order = scafiGenerator.ORDER_ATOMIC) {
-    return function(block) {
-        let code = fieldNames.map(fieldName => extractValue(fieldName)(block)[0]);
-        return [prepend + code.join(join) + append, order];
+class AbstractExtractorBuilder {
+
+    constructor() {
+        this.prepend = "";
+        this.append = "";
+        this.order = scafiGenerator.ORDER_NONE;
+    }
+
+    withPrepend(prepend) {
+        this.prepend = prepend;
+        return this;
+    }
+
+    withAppend(append) {
+        this.append = append;
+        return this;
+    }
+
+    withOrder(order) {
+        this.order = order;
+        return this;
+    }
+}
+class FieldExtractor {
+
+    constructor(fieldName, prepend, append, order) {
+        this.fieldName = fieldName;
+        this.prepend = prepend;
+        this.append = append;
+        this.order = order;
+    }
+
+    getExtractor() {
+        return (block) => [this.prepend + block.getFieldValue(this.fieldName) + this.append, this.order];
+    }
+
+    static builder() {
+        return new FieldExtractorBuilder();
+    }
+
+}
+class FieldExtractorBuilder extends AbstractExtractorBuilder {
+
+    constructor() {
+        super();
+        this.fieldName = "";
+    }
+
+    withFieldName(fieldName) {
+        this.fieldName = fieldName;
+        return this;
+    }
+
+    build() {
+        return new FieldExtractor(this.fieldName, this.prepend, this.append, this.order)
+            .getExtractor();
+    }
+}
+class FieldsExtractor {
+    constructor(fieldNames, join, prepend, append, order) {
+        this.fieldNames = fieldNames;
+        this.join = join;
+        this.prepend = prepend;
+        this.append = append;
+        this.order = order;
+    }
+
+    getExtractor() {
+        return function(block) {
+            let code = this.fieldNames.map(fieldName => extractFieldValue(fieldName)(block)[0]);
+            return [this.prepend + code.join(this.join) + this.append, this.order];
+        }
+    }
+
+    static builder() {
+        return new FieldsExtractorBuilder();
+    }
+}
+class FieldsExtractorBuilder extends AbstractExtractorBuilder {
+
+    constructor() {
+        this.fieldNames = [];
+        this.join = "";
+    }
+
+    withFieldName(fieldName) {
+        this.fieldNames.push(fieldName);
+        return this;
+    }
+
+    withJoin(join) {
+        this.join = join;
+        return this;
+    }
+
+    build() {
+        return new FieldsExtractor(this.fieldNames, this.join, this.prepend, this.append, this.order)
+            .getExtractor();
+    }
+}
+class CodeExtractor {
+
+    constructor(inputName, prepend, append, internalOrder, externalOrder) {
+        this.inputName = inputName;
+        this.prepend = prepend;
+        this.append = append;
+        this.internalOrder = internalOrder;
+        this.externalOrder = externalOrder;
+    }
+
+    getExtractor() {
+        return (block) => [
+
+            this.prepend +
+            Blockly.ScaFi.valueToCode(block, this.inputName, this.internalOrder) +
+            this.append,
+
+            this.externalOrder
+        ];
+    }
+
+    static builder() {
+        return new CodeExtractorBuilder();
     }
 }
 
-function extractCode(fieldName, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_FUNCTION_CAL) {
+class CodeExtractorBuilder {
+    constructor() {
+        this.inputName = "";
+        this.prepend = "";
+        this.append = "";
+        this.internalOrder = scafiGenerator.ORDER_NONE;
+        this.externalOrder = scafiGenerator.ORDER_NONE;
+    }
+
+    withInputName(inputName) {
+        this.inputName = inputName;
+        return this;
+    }
+
+    withPrepend(prepend) {
+        this.prepend = prepend;
+        return this;
+    }
+
+    withAppend(append) {
+        this.append = append;
+        return this;
+    }
+
+    withInternalOrder(internalOrder) {
+        this.internalOrder = internalOrder;
+        return this;
+    }
+
+    withExternalOrder(externalOrder) {
+        this.externalOrder = externalOrder;
+        return this;
+    }
+
+    build() {
+        return new CodeExtractor(this.inputName, this.prepend, this.append, this.internalOrder, this.externalOrder)
+            .getExtractor();
+    }
+}
+
+
+
+
+function extractCode(fieldName, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_NONE) {
     return (block) => [prepend + Blockly.ScaFi.valueToCode(block, fieldName, internalOrder) + append, externalOrder];
 }
 
@@ -82,28 +241,68 @@ scafiGenerator['aggregate_program'] = function(block) {
     if (scafiImportArray.length > 0) {
         scafiImportCode = "//using " + scafiImportArray.join(", ") + "\n";
     }
+    console.log("CODE = ");
+    const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock('AGGREGATE_PROGRAM_MAIN'), false)
 
-    const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock("AGGREGATE_PROGRAM_MAIN")); //Not using statementToCode to avoid first INDENT
+    //Not using statementToCode to avoid first INDENT
 
     return standardImportCode + scafiImportCode + otherCode;
 }
 
-scafiGenerator['output'] = (block) => extractCode('OUTPUT_VALUE')(block)[0];
+scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
 
+//
+// Basic
+// 
+let outputExtractor =
+    (block) => [Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.ORDER_NONE), scafiGenerator.ORDER_FUNCTION_CALL];
 
+scafiGenerator['output'] = (block) => {
+    let output = outputExtractor(block)[0];
+    //console.log(output);
+    return output;
+};
+
+// 
+// Aggregate
+//
+scafiGenerator['branch'] = (block) => [
+    extractCode("CONDITION", "branch(", ")")(block)[0] +
+    extractCodes(["FIRST_BRANCH", "SECOND_BRANCH"], "\n}{\n\t", " {\n\t", "\n}")(block)[0],
+    scafiGenerator.ORDER_FUNCTION_CALL
+]
+
+//
 // Types
-scafiGenerator['class_integer'] = extractValue('NAME')
-scafiGenerator['class_double'] = extractValue('NAME')
-scafiGenerator['class_boolean'] = extractValue('NAME')
-scafiGenerator['class_string'] = extractValue('NAME')
-scafiGenerator['class_other'] = extractValue('NAME')
+//
+let classExtractor =
+    FieldExtractor.builder()
+    .withFieldName("NAME")
+    .build();
+scafiGenerator['class_integer'] = classExtractor;
+scafiGenerator['class_double'] = classExtractor
+scafiGenerator['class_boolean'] = classExtractor
+scafiGenerator['class_string'] = classExtractor
+scafiGenerator['class_other'] = classExtractor
 
+
+// 
 // Values
-scafiGenerator['integer_value'] = extractValue('VALUE')
-scafiGenerator['double_value'] = extractValue('VALUE')
-scafiGenerator['boolean_value'] = extractValue('VALUE')
-scafiGenerator['string_value'] = extractValue('VALUE', '"', '"')
-scafiGenerator['color_value'] = extractValue('VALUE', '"', '"')
+//
+let valueExtractor = FieldExtractor.builder()
+    .withFieldName("VALUE")
+    .build();
+scafiGenerator['integer_value'] = valueExtractor
+scafiGenerator['double_value'] = valueExtractor
+scafiGenerator['boolean_value'] = valueExtractor
+
+let stringValueExtractor = FieldExtractor.builder()
+    .withFieldName("VALUE")
+    .withPrepend('"')
+    .withAppend('"')
+    .build()
+scafiGenerator['string_value'] = stringValueExtractor
+scafiGenerator['color_value'] = stringValueExtractor
 scafiGenerator['tuple_value'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
 
 
@@ -119,22 +318,29 @@ scafiGenerator['sense'] = (block) => {
 }
 
 
-// Types
-
 /* FUNCTIONS */
-scafiGenerator['getter'] = extractValue('NAME')
-scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
+let getterExtractor = FieldExtractor.builder().withFieldName("NAME").build();
+scafiGenerator['getter'] = getterExtractor
 
-scafiGenerator['led_all_to'] = extractValue('COLOR_VALUE', 'ledAll to ', '', scafiGenerator.ORDER_FUNCTION_CALL)
+let ledAllToExtractor = FieldExtractor.builder()
+    .withFieldName("COLOR_VALUE")
+    .withPrepend("ledAll to ")
+    .withOrder(scafiGenerator.ORDER_FUNCTION_CALL)
+    .build();
+scafiGenerator['led_all_to'] = ledAllToExtractor
+
 scafiGenerator['distance_to'] = extractCode("SRC", "distanceTo(", ")", scafiGenerator.ORDER_ATOMIC)
+
 scafiGenerator['distance_between'] = extractCodes(["SOURCE", "TARGET", ", ", "distanceBetween(", ")", scafiGenerator.ORDER_ATOMIC])
+
 scafiGenerator['channel'] = extractCodes(["SOURCE", "TARGET", "WIDTH"], ", ", "channel(", ")", scafiGenerator.ORDER_ATOMIC)
+
+
 scafiGenerator['mux'] = (block) => [
     extractCode("CONDITION", "mux(", ")")(block)[0] +
     extractCodes(["FIRST_BRANCH", "SECOND_BRANCH"], "\n}{\n\t", " {\n\t", "\n}")(block)[0],
     scafiGenerator.ORDER_FUNCTION_CALL
 ]
-
 scafiGenerator['boolean_operation'] = function(block) {
     const operation = block.getFieldValue("OPERATION");
 
@@ -210,7 +416,6 @@ scafiGenerator['number_operation'] = function(block) {
     const code = first + operator + second;
     return [code, order];
 }
-
 scafiGenerator['define'] = function(block) {
     const defName = block.getFieldValue('NAME');
     const input = block.getInput('VALUE');

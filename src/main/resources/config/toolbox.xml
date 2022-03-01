@@ -3,12 +3,12 @@
     <block type="output"></block>
   </category>
   <category name="Aggregate">
+    <block type="nbr"></block>
     <block type="branch"></block>
     <block type="mux"></block>
     <block type="rep">
       <field name="PREVIOUS" id="yANW!y:.,l;R6;+zv.#?">x</field>
     </block>
-    <block type="nbr"></block>
   </category>
   <category name="Utilities">
     <block type="mid"></block>

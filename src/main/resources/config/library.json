@@ -60,15 +60,14 @@
       "check": "Boolean"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "FIRST_BRANCH"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "SECOND_BRANCH"
     }
   ],
-  "inputsInline": true,
   "output": null,
   "colour": 210,
   "tooltip": "",
@@ -476,13 +475,10 @@
 },
 {
   "type": "nbr",
-  "message0": "NBR %1 Expression:  %2",
+  "message0": "NBR %1",
   "args0": [
     {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "EXPRESSION"
     }
   ],
@@ -710,15 +706,14 @@
       "check": "Boolean"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "FIRST_BRANCH"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "SECOND_BRANCH"
     }
   ],
-  "inputsInline": true,
   "output": null,
   "colour": 230,
   "tooltip": "",
