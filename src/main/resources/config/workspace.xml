@@ -1,10 +1,1 @@
-<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
-  <block type="procedures_defnoreturn" id="Qn1!b?69pAp|N2=?W8~F" x="237" y="-37">
-    <field name="NAME">do something2</field>
-    <comment pinned="false" h="80" w="160">Describe this function...</comment>
-  </block>
-  <block type="procedures_defnoreturn" id="5AIRUMtkghRhfQdfgaD4" x="138" y="38">
-    <field name="NAME">do something</field>
-    <comment pinned="false" h="80" w="160">Describe this function...</comment>
-  </block>
-</xml>
+<xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>

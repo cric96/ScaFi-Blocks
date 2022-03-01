@@ -21,12 +21,30 @@
     <block type="foldhoodplus"></block>
   </category>
   <category name="Sensors">
-    <block type="sense"></block>
+    <block type="sense">
+      <value name="TYPE">
+        <block type="class_boolean">
+          <field name="NAME">Boolean</field>
+        </block>
+      </value>
+      <value name="SENSOR_NAME">
+        <block type="string_value">
+          <field name="VALUE">sensorX</field>
+        </block>
+      </value>
+    </block>
   </category>
   <category name="Actuators">
-    <block type="led_all_to"></block>
+    <block type="led_all_to">
+      <value name="COLOR">
+        <block type="color_value">
+          <field name="VALUE">#ffff00</field>
+        </block>
+      </value>
+    </block>
   </category>
   <category name="Operations">
+    <block type="equals"></block>
     <block type="boolean_operation">
       <field name="OPERATOR">and</field>
     </block>
@@ -44,7 +62,6 @@
     <block type="integer_value">
       <field name="VALUE">1</field>
     </block>
-    <block type="random"></block>
     <block type="double_value">
       <field name="VALUE">NaN</field>
     </block>
@@ -55,6 +72,7 @@
       <field name="VALUE">#ffff00</field>
     </block>
     <block type="tuple_value"></block>
+    <block type="random"></block>
   </category>
   <category name="Type">
     <block type="class_integer">

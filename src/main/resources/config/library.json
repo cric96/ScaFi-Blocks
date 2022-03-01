@@ -79,7 +79,7 @@
   "args0": [
     {
       "type": "input_value",
-      "name": "FIRST",
+      "name": "LEFT",
       "check": "Boolean"
     },
     {
@@ -88,11 +88,11 @@
       "options": [
         [
           "and",
-          "and"
+          "&&"
         ],
         [
           "or",
-          "or"
+          "||"
         ]
       ]
     },
@@ -101,7 +101,7 @@
     },
     {
       "type": "input_value",
-      "name": "SECOND",
+      "name": "RIGHT",
       "check": "Boolean"
     }
   ],
@@ -203,21 +203,6 @@
     }
   ],
   "output": null,
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "color",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_colour",
-      "name": "COLOR",
-      "colour": "#ffff00"
-    }
-  ],
-  "output": "Color",
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
@@ -715,6 +700,25 @@
     }
   ],
   "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "equals",
+  "message0": "%1 equals %2",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "LEFT"
+    },
+    {
+      "type": "input_value",
+      "name": "RIGHT"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Boolean",
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""

@@ -141,7 +141,6 @@ class CodeExtractor {
         return new CodeExtractorBuilder();
     }
 }
-
 class CodeExtractorBuilder {
     constructor() {
         this.inputName = "";
@@ -181,7 +180,57 @@ class CodeExtractorBuilder {
             .getExtractor();
     }
 }
+class CodesExtractor {
 
+    constructor(inputNames, join, prepend, append, internalOrder, externalOrder) {
+        this.inputNames = inputNames;
+        this.join = join;
+        this.prepend = prepend;
+        this.append = append;
+        this.internalOrder = internalOrder;
+        this.externalOrder = externalOrder;
+    }
+
+    getExtractor() {
+        return (block) => {
+            let code = this.inputNames
+                .map(inputName => CodeExtractor.builder()
+                    .withInputName(inputName)
+                    .withExternalOrder(this.internalOrder)
+                    .build()(block)[0]
+                );
+
+            return [this.prepend + code.join(this.join) + this.append, this.externalOrder];
+        }
+    }
+
+    static builder() {
+        return new CodesExtractorBuilder();
+    }
+}
+class CodesExtractorBuilder extends CodeExtractorBuilder {
+
+    constructor() {
+        super();
+        this.inputNames = [];
+        this.join = "";
+    }
+
+    withJoin(join) {
+        this.join = join;
+        return this;
+    }
+
+    withInputName(inputName) {
+        this.inputNames.push(inputName);
+        return this;
+    }
+
+    build() {
+        return new CodesExtractor(this.inputNames, this.join, this.prepend, this.append, this.internalOrder, this.externalOrder)
+            .getExtractor();
+    }
+}
 
 
 
@@ -241,36 +290,90 @@ scafiGenerator['aggregate_program'] = function(block) {
     if (scafiImportArray.length > 0) {
         scafiImportCode = "//using " + scafiImportArray.join(", ") + "\n";
     }
-    console.log("CODE = ");
-    const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock('AGGREGATE_PROGRAM_MAIN'), false)
 
-    //Not using statementToCode to avoid first INDENT
+    const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock('AGGREGATE_PROGRAM_MAIN'), false)
+        //Not using statementToCode to avoid first INDENT
 
     return standardImportCode + scafiImportCode + otherCode;
 }
 
-scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
-
 //
 // Basic
 // 
-let outputExtractor =
-    (block) => [Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.ORDER_NONE), scafiGenerator.ORDER_FUNCTION_CALL];
-
-scafiGenerator['output'] = (block) => {
-    let output = outputExtractor(block)[0];
-    //console.log(output);
-    return output;
-};
+scafiGenerator['output'] = (block) => extractCode("OUTPUT_VALUE")(block)[0];
 
 // 
 // Aggregate
 //
-scafiGenerator['branch'] = (block) => [
-    extractCode("CONDITION", "branch(", ")")(block)[0] +
-    extractCodes(["FIRST_BRANCH", "SECOND_BRANCH"], "\n}{\n\t", " {\n\t", "\n}")(block)[0],
-    scafiGenerator.ORDER_FUNCTION_CALL
-]
+scafiGenerator['nbr'] = CodeExtractor.builder()
+    .withInputName("EXPRESSION")
+    .withPrepend("nbr { ")
+    .withAppend(" }")
+    .build()
+
+scafiGenerator['branch'] = (block) => {
+
+    let conditionExtractor = CodeExtractor.builder()
+        .withInputName("CONDITION")
+        .withPrepend("branch(")
+        .withAppend(") {\n  ")
+        .build();
+
+    let branchesExtractor = CodesExtractor.builder()
+        .withInputName("FIRST_BRANCH")
+        .withInputName("SECOND_BRANCH")
+        .withJoin("\n}{\n  ")
+        .withAppend("\n}")
+        .build()
+
+    return [conditionExtractor(block)[0] + branchesExtractor(block)[0], scafiGenerator.ORDER_FUNCTION_CALL]
+}
+
+scafiGenerator['mux'] = scafiGenerator['branch']; // Same names and same code
+
+
+//
+// Utilities
+//
+scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
+
+scafiGenerator['distance_to'] = CodeExtractor.builder()
+    .withInputName("SRC")
+    .withPrepend("distanceTo(")
+    .withAppend(")")
+    .build()
+
+scafiGenerator['channel'] = CodesExtractor.builder()
+    .withInputName("SOURCE")
+    .withInputName("TARGET")
+    .withInputName("WIDTH")
+    .withPrepend("channel(")
+    .withAppend(")")
+    .withJoin(", ")
+    .build()
+
+scafiGenerator['distance_between'] = CodesExtractor.builder()
+    .withInputName("SOURCE")
+    .withInputName("TARGET")
+    .withPrepend("distanceBetween(")
+    .withAppend(")")
+    .withJoin(", ")
+    .build()
+
+//
+// Operators
+//
+scafiGenerator['equals'] = CodesExtractor.builder()
+    .withInputName("LEFT")
+    .withInputName("RIGHT")
+    .withJoin(" == ")
+    .build()
+
+scafiGenerator['boolean_operation'] = (block) => CodesExtractor.builder()
+    .withInputName("LEFT")
+    .withInputName("RIGHT")
+    .withJoin(" " + block.getFieldValue("OPERATOR") + " ")
+    .build()(block)
 
 //
 // Types
@@ -322,44 +425,17 @@ scafiGenerator['sense'] = (block) => {
 let getterExtractor = FieldExtractor.builder().withFieldName("NAME").build();
 scafiGenerator['getter'] = getterExtractor
 
-let ledAllToExtractor = FieldExtractor.builder()
-    .withFieldName("COLOR_VALUE")
+let ledAllToExtractor = CodeExtractor.builder()
+    .withInputName("COLOR")
     .withPrepend("ledAll to ")
-    .withOrder(scafiGenerator.ORDER_FUNCTION_CALL)
     .build();
 scafiGenerator['led_all_to'] = ledAllToExtractor
 
-scafiGenerator['distance_to'] = extractCode("SRC", "distanceTo(", ")", scafiGenerator.ORDER_ATOMIC)
-
-scafiGenerator['distance_between'] = extractCodes(["SOURCE", "TARGET", ", ", "distanceBetween(", ")", scafiGenerator.ORDER_ATOMIC])
-
-scafiGenerator['channel'] = extractCodes(["SOURCE", "TARGET", "WIDTH"], ", ", "channel(", ")", scafiGenerator.ORDER_ATOMIC)
 
 
-scafiGenerator['mux'] = (block) => [
-    extractCode("CONDITION", "mux(", ")")(block)[0] +
-    extractCodes(["FIRST_BRANCH", "SECOND_BRANCH"], "\n}{\n\t", " {\n\t", "\n}")(block)[0],
-    scafiGenerator.ORDER_FUNCTION_CALL
-]
-scafiGenerator['boolean_operation'] = function(block) {
-    const operation = block.getFieldValue("OPERATION");
 
-    let order;
-    let operator;
-    if (operation === 'and') {
-        operator = "&&";
-        order = scafiGenerator.ORDER_LOGICAL_AND;
-    } else { //or
-        operator = "||";
-        order = scafiGenerator.ORDER_LOGICAL_OR;
-    }
 
-    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', order);
-    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', order);
-    const code = first + ' ' + operator + ' ' + second;
 
-    return [code, order];
-}
 scafiGenerator['number_compare'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
 
