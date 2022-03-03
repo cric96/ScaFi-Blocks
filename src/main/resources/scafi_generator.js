@@ -527,6 +527,13 @@ scafiGenerator['val'] = function(block) {
     return code;
 }
 
+scafiGenerator['function_no_return'] = (block) => {
+    let def = block.getFieldValue('FUNCTION_NAME');
+    let code = Blockly.ScaFi.statementToCode(block, 'BODY')
+    return `def ${def}:\n  ${code} \n`;
+}
+
+// scafiGenerator['function_1_param'] = (block) => ["", scafiGenerator.ORDER_FUNCTION_CALL];
 
 
 //scrub_ is the common tasks for generating code from blocks, called on every block.

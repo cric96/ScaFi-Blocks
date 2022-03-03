@@ -61,20 +61,15 @@ function addBlocksLibraryToBlocky(library) {
  */
 function dynamicallyAddGetterForDefinitionAndValues(workspace) {
     const blockList = [{
-            'kind': 'block',
-            'type': 'define',
-        },
-        {
-            'kind': 'block',
-            'type': 'val',
-        }
-    ];
+        'kind': 'block',
+        'type': 'function_no_return',
+    }];
 
     // Get all the blocks in the workspace
-    const defineBlocks = workspace.getBlocksByType('define').concat(workspace.getBlocksByType('val'));
+    const defineBlocks = workspace.getBlocksByType('function_no_return') //workspace.getBlocksByType('define').concat(workspace.getBlocksByType('val'));
 
     for (const defineBlock of defineBlocks) {
-        const defName = defineBlock.getFieldValue('NAME');
+        const defName = defineBlock.getFieldValue('FUNCTION_NAME');
         blockList.push({
             'kind': 'block',
             'type': 'getter',
@@ -105,7 +100,7 @@ function createWorkspace(editor, toolbox, initialWorkspace) {
     addInitialConfigurationToWorkspace(initialWorkspace, workspace);
 
     // Add a callback to dynamically add getter after a define block is added.
-    workspace.registerToolboxCategoryCallback('DEFINITIONS', dynamicallyAddGetterForDefinitionAndValues);
+    workspace.registerToolboxCategoryCallback('FUNCTIONS', dynamicallyAddGetterForDefinitionAndValues);
 
     //Disable all blocks outside the main block
     workspace.addChangeListener(Blockly.Events.disableOrphans);
