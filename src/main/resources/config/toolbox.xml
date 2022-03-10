@@ -54,6 +54,8 @@
     <block type="number_operation">
       <field name="OPERATOR">ADDITION</field>
     </block>
+    <block type="ternary_operation">
+    </block>
   </category>
   <category name="Values" colour="#995ba5">
     <block type="string_value">

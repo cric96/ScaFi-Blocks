@@ -1060,4 +1060,28 @@
   "colour": 20,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "ternary_operation",
+  "message0": "%1 ? %2 : %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "CONDITION",
+      "check": "Boolean"
+    },
+    {
+      "type": "input_value",
+      "name": "THEN"
+    },
+    {
+      "type": "input_value",
+      "name": "ELSE"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 260,
+  "tooltip": "",
+  "helpUrl": ""
 }]

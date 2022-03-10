@@ -2610,4 +2610,66 @@
         <field name="HUE">20</field>
       </block>
     </value>
+  </block><block type="factory_base" id="tYU#%D,DAmt%#SrIWb]^" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">ternary_operation</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="5Vfg:$zic$s[gbe^l#V^">
+        <field name="INPUTNAME">CONDITION</field>
+        <field name="ALIGN">LEFT</field>
+        <value name="TYPE">
+          <shadow type="type_null" id="e^?lLF)^.=q`ao]=H}iJ"></shadow>
+          <block type="type_boolean" id="]:=8v,G9AJWS{ms-)K8}"></block>
+        </value>
+        <next>
+          <block type="input_value" id="%x[%Ad#H1*o`u$.1[yBA">
+            <field name="INPUTNAME">THEN</field>
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="MW:Y9I[DtZ_#l@{1Ud{z">
+                <field name="TEXT">?</field>
+              </block>
+            </statement>
+            <value name="TYPE">
+              <shadow type="type_null" id="@O2$/F9D$RhJvJX;ry+j"></shadow>
+            </value>
+            <next>
+              <block type="input_value" id="k2=~9WXM];TnWC@^nbQ-">
+                <field name="INPUTNAME">ELSE</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                  <block type="field_static" id=":M4Yz~4_`sscKc/0y~/r">
+                    <field name="TEXT">:</field>
+                  </block>
+                </statement>
+                <value name="TYPE">
+                  <shadow type="type_null" id="pcgsz.alhw@rH;cX,wY6"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HG?MEXr?8;-#*%rE1oc=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="r]}7j1mkz#`51}3p`8FO" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="pHb4.J88!Cw4goZzvj=j"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="wn`ADX,j[/D%ZnBoKn%g">
+        <mutation colour="#745ba5"></mutation>
+        <field name="HUE">260</field>
+      </block>
+    </value>
   </block></xml>

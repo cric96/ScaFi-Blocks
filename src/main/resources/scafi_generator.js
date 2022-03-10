@@ -398,6 +398,13 @@ scafiGenerator['boolean_operation'] = (block) => CodesExtractor.builder()
     .withJoin(" " + block.getFieldValue("OPERATOR") + " ")
     .build()(block)
 
+scafiGenerator['ternary_operation'] = (block) => {
+    let condition = Blockly.ScaFi.valueToCode(block, "CONDITION", scafiGenerator.ORDER_NONE);
+    let then = Blockly.ScaFi.valueToCode(block, "THEN", scafiGenerator.ORDER_NONE);
+    let else_ = Blockly.ScaFi.valueToCode(block, "ELSE", scafiGenerator.ORDER_NONE);
+    return [`${condition} ? ${then} : ${else_}`, scafiGenerator.ORDER_NONE];
+}
+
 scafiGenerator['number_compare'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
 
