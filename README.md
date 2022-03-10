@@ -16,6 +16,24 @@ sbt fullOptJS
 - Open in browser the file [index.html](src/main/resources/index.html)
 
 
+<!-- ROADMAP -->
+## Roadmap
+
+- [ ] Put return block by default in functions.
+- [ ] Detect return type of functions.
+- [ ] Refactor FOLD operations.
+- [ ] Refactor sensors management.
+- [ ] Built lambda constructs for REP and FOLD constructs.
+- [ ] Implement `minHood` and `minHoodPlus`.
+- [ ] Implement `if` construct.
+- [ ] Implement `hsl` function.
+- [ ] Implement `G2` function.
+- [ ] Implement `C` function.
+- [ ] Implement `S` function.
+- [ ] Implement `nbrRange` function.
+- [ ] Implement `broadcast` function.
+- [ ] Implement modulo operation.
+
 
 ## Project structure
 The Blockly environment setup and code generator are written in JavaScript in the [resource](src/main/resources) directory:
