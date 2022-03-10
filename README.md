@@ -158,4 +158,4 @@ Project Link: [https://github.com/alemazzo/blockly2scafi](https://github.com/ale
 [issues-shield]: https://img.shields.io/github/issues/alemazzo/blockly2scafi.svg?style=flat-square
 [issues-url]: https://github.com/alemazzo/blockly2scafi/issues
 [license-shield]: https://img.shields.io/github/license/alemazzo/blockly2scafi.svg?style=flat-square
-[license-url]: https://github.com/alemazzo/blockly2scafi/blob/master/LICENSE.txt
+[license-url]: https://github.com/alemazzo/blockly2scafi/blob/master/LICENSE
