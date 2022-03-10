@@ -1,9 +1,28 @@
-# blockly2scafi #
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-**blockly2scafi** is a [**Blockly**](https://developers.google.com/blockly/) environment developed
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/alemazzo/blockly2scafi">
+    <img src="https://github.com/alemazzo/blockly2scafi/blob/main/blockly2scafi.png" alt="Logo" width="500" height="500">
+  </a>
+
+  <h3 align="center">blockly2scafi</h3>
+
+  <p align="center">
+    **blockly2scafi** is a [**Blockly**](https://developers.google.com/blockly/) environment developed
 in [Scala.js](http://www.scala-js.org/) and Javascript with a custom code generator for [**ScaFi**](https://scafi.github.io/).
-
-**Try it in <a href="https://alemazzo.github.io/blockly2scafi/" target="_blank">Github pages</a>.**
+    <br />
+    <a href="https://alemazzo.github.io/blockly2scafi/"><strong>Try it in Github pages</strong></a>
+    <br />
+    <br />
+  </p>
+</p>
 
 ## Installation
 
