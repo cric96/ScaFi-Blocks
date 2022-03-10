@@ -3,7 +3,7 @@
 **blockly2scafi** is a [**Blockly**](https://developers.google.com/blockly/) environment developed
 in [Scala.js](http://www.scala-js.org/) and Javascript with a custom code generator for [**ScaFi**](https://scafi.github.io/).
 
-**Try it in [Github pages](https://matteocerioni.github.io/blockly2scafi/src/main/resources/index.html).**
+**Try it in [Github pages](https:/alemazzo.github.io/blockly2scafi/).**
 
 ## Installation
 
