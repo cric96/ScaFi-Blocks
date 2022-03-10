@@ -23,16 +23,57 @@
   </p>
 </p>
 
-## Installation
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+  * [Project Structure](#project-structure)
+  * [Add or edit blocks](#how-to-add-or-edit-blocks)
+  * [Add or edit toolbox](#how-to-add-or-edit-toolbox-categories)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+blockly2scafi is a Blockly environment developed in Scala.js and Javascript with a custom code generator for ScaFi.
+
+### Built With
+
+* [Blockly](https://developers.google.com/blockly)
+* [Javascript](https://www.javascript.com/)
+* [Scala.js](https://www.scala-js.org/)
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+- Install [sbt](https://www.scala-sbt.org/)
+
+### Installation
 
 - Compile optimized Scala.js with [SBT](https://www.scala-sbt.org/) :
 
-```
+```sh
 sbt fullOptJS
 ```
 
 - Open in browser the file [index.html](src/main/resources/index.html)
 
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Drag and drop the blocks from the relative categories in the toolbox to create an aggregate program that will be display on the right section.
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -53,7 +94,11 @@ sbt fullOptJS
 - [ ] Implement modulo operation.
 
 
-## Project structure
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+### Project structure
 The Blockly environment setup and code generator are written in JavaScript in the [resource](src/main/resources) directory:
 
 #### Main folder
@@ -67,7 +112,7 @@ The Blockly environment setup and code generator are written in JavaScript in th
 - **[config/toolbox.xml](src/main/resources/config/toolbox.xml)** contains the exported toolbox definition in XML format.
 - **[config/initialWorkspace.xml](src/main/resources/config/initialWorkspace.xml)** contains the initial workspace structure in XML format.
 
-## How to add or edit blocks
+### How to add or edit blocks
 1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#).
 2. Click on *Import Block Library* and upload the file [config/library.xml](src/main/resources/config/library.xml).
 3. Define or edit the shape of the blocks using the tool.
@@ -75,8 +120,7 @@ The Blockly environment setup and code generator are written in JavaScript in th
 5. Create or edit the code generator function of the block in [scafi_generator.js](src/main/resources/scafi_generator.js).
 6. Remember to download the block library xml from [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) and save it in [config/library.xml](src/main/resources/config/library.xml).
 
-
-## How to add or edit toolbox categories
+### How to add or edit toolbox categories
 1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#).
 2. Click on *Import Block Library* and upload the file [config/library.xml](src/main/resources/config/library.xml).
 3. Go to *Workspace Factory* section.
@@ -87,7 +131,20 @@ The Blockly environment setup and code generator are written in JavaScript in th
 8. Add `custom="Definitions"` attribute to the `Definitions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
 
 
+<!-- LICENSE -->
+## License
 
+Distributed under the MIT License. See [LICENSE](https://github.com/alemazzo/blockly2scafi/blob/main/LICENSE) for more information.
+
+<!-- CONTACT -->
+## Contact
+
+Project Link: [https://github.com/alemazzo/blockly2scafi](https://github.com/alemazzo/blockly2scafi/)
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [Alessandro Mazzoli](https://www.linkedin.com/in/alessandro-mazzoli-009868140/)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -102,4 +159,3 @@ The Blockly environment setup and code generator are written in JavaScript in th
 [issues-url]: https://github.com/alemazzo/blockly2scafi/issues
 [license-shield]: https://img.shields.io/github/license/alemazzo/blockly2scafi.svg?style=flat-square
 [license-url]: https://github.com/alemazzo/blockly2scafi/blob/master/LICENSE.txt
-[product-screenshot]: images/screenshot.png
