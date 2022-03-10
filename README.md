@@ -38,10 +38,12 @@ sbt fullOptJS
 ## Project structure
 The Blockly environment setup and code generator are written in JavaScript in the [resource](src/main/resources) directory:
 
+#### Main folder
 - **[index.html](src/main/resources/index.html)** contains the layout of the web page of blockly2scafi, styled by the css file **[main.css](src/main/resources/main.css)**.
 - **[blockly2scafi.js](src/main/resources/blockly2scafi.js)** initializes the blocky workspace and toolbox.
 - **[scafi_generator.js](src/main/resources/scafi_generator.js)** builds the scafi code generator that translates the Blocks to valid and formatted Scafi Code.
 
+#### Config folder
 - **[config/library.xml](src/main/resources/config/library.xml)** is not used by blockly2scafi, it's the exported [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) library.
 - **[config/library.json](src/main/resources/config/library.json)** contains the exported blocks definitions in JSON format. It's used to create the workspace.
 - **[config/toolbox.xml](src/main/resources/config/toolbox.xml)** contains the exported toolbox definition in XML format.
