@@ -9,14 +9,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/alemazzo/blockly2scafi">
-    <img src="https://github.com/alemazzo/blockly2scafi/blob/main/blockly2scafi.png" alt="Logo" width="500" height="500">
+    <img src="https://github.com/alemazzo/blockly2scafi/blob/master/blockly2scafi.png" alt="Logo" width="500" height="500">
   </a>
 
   <h3 align="center">blockly2scafi</h3>
 
   <p align="center">
-    **blockly2scafi** is a [**Blockly**](https://developers.google.com/blockly/) environment developed
-in [Scala.js](http://www.scala-js.org/) and Javascript with a custom code generator for [**ScaFi**](https://scafi.github.io/).
+    A <a href="https://developers.google.com/blockly/">Blockly</a> environment developed in <a href="http://www.scala-js.org/">Scala.js</a> and Javascript with a custom code generator for <a href="https://scafi.github.io/">ScaFi</a>.
     <br />
     <a href="https://alemazzo.github.io/blockly2scafi/"><strong>Try it in Github pages</strong></a>
     <br />
@@ -88,3 +87,19 @@ The Blockly environment setup and code generator are written in JavaScript in th
 8. Add `custom="Definitions"` attribute to the `Definitions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
 
 
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/alemazzo/blockly2scafi.svg?style=flat-square
+[contributors-url]: https://github.com/alemazzo/blockly2scafi/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/alemazzo/blockly2scafi.svg?style=flat-square
+[forks-url]: https://github.com/alemazzo/blockly2scafi/network/members
+[stars-shield]: https://img.shields.io/github/stars/alemazzo/blockly2scafi.svg?style=flat-square
+[stars-url]: https://github.com/alemazzo/blockly2scafi/stargazers
+[issues-shield]: https://img.shields.io/github/issues/alemazzo/blockly2scafi.svg?style=flat-square
+[issues-url]: https://github.com/alemazzo/blockly2scafi/issues
+[license-shield]: https://img.shields.io/github/license/alemazzo/blockly2scafi.svg?style=flat-square
+[license-url]: https://github.com/alemazzo/blockly2scafi/blob/master/LICENSE.txt
+[product-screenshot]: images/screenshot.png
