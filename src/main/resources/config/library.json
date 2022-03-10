@@ -25,7 +25,7 @@
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 20,
   "tooltip": "Output a value",
   "helpUrl": ""
 },
@@ -46,7 +46,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 210,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -69,7 +69,7 @@
     }
   ],
   "output": null,
-  "colour": 210,
+  "colour": 65,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -107,7 +107,7 @@
   ],
   "inputsInline": true,
   "output": "Boolean",
-  "colour": 210,
+  "colour": 260,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -157,7 +157,7 @@
     }
   ],
   "output": "Double",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -188,7 +188,7 @@
     }
   ],
   "output": "Boolean",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -203,36 +203,6 @@
     }
   ],
   "output": null,
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "type",
-  "message0": "%1",
-  "args0": [
-    {
-      "type": "field_label_serializable",
-      "name": "TYPE",
-      "text": ""
-    }
-  ],
-  "output": "Class",
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "other_type",
-  "message0": "other %1",
-  "args0": [
-    {
-      "type": "field_input",
-      "name": "TYPE",
-      "text": ""
-    }
-  ],
-  "output": "Class",
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
@@ -253,7 +223,7 @@
     }
   ],
   "output": "Double",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -312,7 +282,7 @@
     }
   ],
   "output": "Boolean",
-  "colour": 210,
+  "colour": 260,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -378,7 +348,7 @@
   "type": "mid",
   "message0": "mid",
   "output": "String",
-  "colour": 230,
+  "colour": 120,
   "tooltip": "Device Id",
   "helpUrl": ""
 },
@@ -404,7 +374,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 160,
   "tooltip": "foldHood",
   "helpUrl": ""
 },
@@ -430,7 +400,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 160,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -444,7 +414,7 @@
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 65,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -471,7 +441,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 65,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -486,7 +456,7 @@
     }
   ],
   "output": "Class",
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -501,7 +471,7 @@
     }
   ],
   "output": "Class",
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -516,7 +486,7 @@
     }
   ],
   "output": "Class",
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -531,7 +501,7 @@
     }
   ],
   "output": "Class",
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -550,7 +520,7 @@
   ],
   "inputsInline": true,
   "output": "Class",
-  "colour": 230,
+  "colour": 330,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -565,7 +535,7 @@
     }
   ],
   "output": "String",
-  "colour": 165,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -580,7 +550,7 @@
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -604,7 +574,7 @@
     }
   ],
   "output": "Boolean",
-  "colour": 210,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -620,7 +590,7 @@
     }
   ],
   "output": "Double",
-  "colour": 260,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -638,7 +608,7 @@
     }
   ],
   "output": "Tuple",
-  "colour": 230,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -653,7 +623,7 @@
     }
   ],
   "output": "Color",
-  "colour": 230,
+  "colour": 290,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -676,7 +646,7 @@
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": 65,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -695,36 +665,12 @@
   ],
   "inputsInline": true,
   "output": "Boolean",
-  "colour": 230,
+  "colour": 260,
   "tooltip": "",
   "helpUrl": ""
 },
 {
   "type": "function",
-  "message0": "function %1 %2 return %3",
-  "args0": [
-    {
-      "type": "field_input",
-      "name": "FUNCTION_NAME",
-      "text": "functionName"
-    },
-    {
-      "type": "input_statement",
-      "name": "BODY"
-    },
-    {
-      "type": "input_value",
-      "name": "RETURN"
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 230,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
-  "type": "function_no_return",
   "message0": "function %1 %2 %3",
   "args0": [
     {
@@ -742,13 +688,13 @@
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 20,
   "tooltip": "",
   "helpUrl": ""
 },
 {
   "type": "function_1_param",
-  "message0": "function %1 %2  input %3 %4 %5",
+  "message0": "function %1 %2  input %3 %4 of type %5 %6",
   "args0": [
     {
       "type": "field_input",
@@ -767,13 +713,18 @@
       "type": "input_dummy"
     },
     {
+      "type": "input_value",
+      "name": "PARAM_TYPE"
+    },
+    {
       "type": "input_statement",
-      "name": "NAME"
+      "name": "BODY"
     }
   ],
+  "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": 20,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -792,7 +743,7 @@
   ],
   "inputsInline": true,
   "output": "Number",
-  "colour": 230,
+  "colour": 290,
   "tooltip": "Random number between edges",
   "helpUrl": ""
 },
@@ -816,7 +767,297 @@
   ],
   "inputsInline": true,
   "output": "Number",
-  "colour": 230,
+  "colour": 290,
   "tooltip": "Random number between edges",
+  "helpUrl": ""
+},
+{
+  "type": "val",
+  "message0": "val %1 %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "NAME",
+      "text": "x"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 330,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "var",
+  "message0": "var %1 %2",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "NAME",
+      "text": "x"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 330,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "return",
+  "message0": "return %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "RETURN"
+    }
+  ],
+  "previousStatement": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "function_2_param",
+  "message0": "function %1 %2  input %3 %4 of type %5  input %6 %7 of type %8 %9",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "FUNCTION_NAME",
+      "text": "functionName"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_input",
+      "name": "PARAM_1_NAME",
+      "text": "x"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_1_TYPE"
+    },
+    {
+      "type": "field_input",
+      "name": "PARAM_2_NAME",
+      "text": "y"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_2_TYPE"
+    },
+    {
+      "type": "input_statement",
+      "name": "BODY"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "function_3_param",
+  "message0": "function %1 %2  input %3 %4 of type %5  input %6 %7 of type %8  input %9 %10 of type %11 %12",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "FUNCTION_NAME",
+      "text": "functionName"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_input",
+      "name": "PARAM_1_NAME",
+      "text": "x"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_1_TYPE"
+    },
+    {
+      "type": "field_input",
+      "name": "PARAM_2_NAME",
+      "text": "y"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_2_TYPE"
+    },
+    {
+      "type": "field_input",
+      "name": "PARAM_3_NAME",
+      "text": "z"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_3_TYPE"
+    },
+    {
+      "type": "input_statement",
+      "name": "BODY"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "call_function",
+  "message0": "%1 %2 ()",
+  "args0": [
+    {
+      "type": "field_label_serializable",
+      "name": "NAME",
+      "text": ""
+    },
+    {
+      "type": "input_dummy"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "call_function_1_param",
+  "message0": "%1 %2 ( %3 : %4 )",
+  "args0": [
+    {
+      "type": "field_label_serializable",
+      "name": "NAME",
+      "text": ""
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "call_function_2_param",
+  "message0": "%1 %2 ( %3 : %4 , %5 : %6 )",
+  "args0": [
+    {
+      "type": "field_label_serializable",
+      "name": "NAME",
+      "text": ""
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_1_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_1"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_2_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_2"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 20,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "call_function_3_param",
+  "message0": "%1 %2 ( %3 : %4 , %5 : %6 , %7 : %8 )",
+  "args0": [
+    {
+      "type": "field_label_serializable",
+      "name": "NAME",
+      "text": ""
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_1_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_1"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_2_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_2"
+    },
+    {
+      "type": "field_label_serializable",
+      "name": "PARAM_3_NAME",
+      "text": ""
+    },
+    {
+      "type": "input_value",
+      "name": "PARAM_3"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 20,
+  "tooltip": "",
   "helpUrl": ""
 }]

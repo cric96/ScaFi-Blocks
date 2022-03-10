@@ -59,17 +59,172 @@ function addBlocksLibraryToBlocky(library) {
  * @param {Workspace} workspace the current workspace.
  * @returns the new block list.
  */
-function dynamicallyAddGetterForDefinitionAndValues(workspace) {
+function dynamicallyAddGetterForFunctions(workspace) {
     const blockList = [{
-        'kind': 'block',
-        'type': 'function_no_return',
-    }];
+            'kind': 'block',
+            'type': 'return',
+        }, {
+            'kind': 'block',
+            'type': 'function',
+        },
+        {
+            'kind': 'block',
+            'type': 'function_1_param',
+        },
+        {
+            'kind': 'block',
+            'type': 'function_2_param',
+        },
+        {
+            'kind': 'block',
+            'type': 'function_3_param',
+        }
+    ];
 
     // Get all the blocks in the workspace
-    const defineBlocks = workspace.getBlocksByType('function_no_return') //workspace.getBlocksByType('define').concat(workspace.getBlocksByType('val'));
+    const defineBlocks = blockList.filter(x => x.type != "return").flatMap(x => workspace.getBlocksByType(x.type));
+
+    defineBlocks.filter(x => x.type == "function").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'call_function',
+            'fields': {
+                'NAME': def.getFieldValue('FUNCTION_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
+
+    defineBlocks.filter(x => x.type == "function_1_param").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'call_function_1_param',
+            'fields': {
+                'NAME': def.getFieldValue('FUNCTION_NAME'),
+                'PARAM_NAME': def.getFieldValue('PARAM_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
+
+    defineBlocks.filter(x => x.type == "function_2_param").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_1_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_2_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'call_function_2_param',
+            'fields': {
+                'NAME': def.getFieldValue('FUNCTION_NAME'),
+                'PARAM_1_NAME': def.getFieldValue('PARAM_1_NAME'),
+                'PARAM_2_NAME': def.getFieldValue('PARAM_2_NAME')
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
+
+    defineBlocks.filter(x => x.type == "function_3_param").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_1_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_2_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_3_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'call_function_3_param',
+            'fields': {
+                'NAME': def.getFieldValue('FUNCTION_NAME'),
+                'PARAM_1_NAME': def.getFieldValue('PARAM_1_NAME'),
+                'PARAM_2_NAME': def.getFieldValue('PARAM_2_NAME'),
+                'PARAM_3_NAME': def.getFieldValue('PARAM_3_NAME')
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
+
+    return blockList;
+};
+
+function dynamicallyAddGetterForDefinitions(workspace) {
+    const blockList = [{
+            'kind': 'block',
+            'type': 'define',
+        },
+        {
+            'kind': 'block',
+            'type': 'val',
+        },
+        {
+            'kind': 'block',
+            'type': 'var',
+        }
+    ];
+
+    // Get all the blocks in the workspace
+    const defineBlocks = blockList.flatMap(x => workspace.getBlocksByType(x.type));
 
     for (const defineBlock of defineBlocks) {
-        const defName = defineBlock.getFieldValue('FUNCTION_NAME');
+        const defName = defineBlock.getFieldValue('NAME');
         blockList.push({
             'kind': 'block',
             'type': 'getter',
@@ -82,7 +237,7 @@ function dynamicallyAddGetterForDefinitionAndValues(workspace) {
         });
     }
     return blockList;
-};
+}
 
 /**
  * Create and setup the workspace.
@@ -100,7 +255,8 @@ function createWorkspace(editor, toolbox, initialWorkspace) {
     addInitialConfigurationToWorkspace(initialWorkspace, workspace);
 
     // Add a callback to dynamically add getter after a define block is added.
-    workspace.registerToolboxCategoryCallback('FUNCTIONS', dynamicallyAddGetterForDefinitionAndValues);
+    workspace.registerToolboxCategoryCallback('Functions', dynamicallyAddGetterForFunctions);
+    workspace.registerToolboxCategoryCallback('Definitions', dynamicallyAddGetterForDefinitions);
 
     //Disable all blocks outside the main block
     workspace.addChangeListener(Blockly.Events.disableOrphans);

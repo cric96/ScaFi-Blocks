@@ -16,6 +16,7 @@ scafiGenerator.ORDER_ASSIGNMENT = 20; // =
 scafiGenerator.ORDER_NONE = 99;
 
 
+// #region Builders
 class AbstractExtractorBuilder {
 
     constructor() {
@@ -232,18 +233,8 @@ class CodesExtractorBuilder extends CodeExtractorBuilder {
     }
 }
 
+// #endregion
 
-
-function extractCode(fieldName, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_NONE) {
-    return (block) => [prepend + Blockly.ScaFi.valueToCode(block, fieldName, internalOrder) + append, externalOrder];
-}
-
-function extractCodes(fieldNames, join, prepend = "", append = "", internalOrder = scafiGenerator.ORDER_NONE, externalOrder = scafiGenerator.ORDER_FUNCTION_CALL) {
-    return function(block) {
-        let code = fieldNames.map(fieldName => extractCode(fieldName)(block)[0]);
-        return [prepend + code.join(join) + append, externalOrder];
-    }
-}
 
 /* AGGREGATE PROGRAM BLOCK */
 scafiGenerator['aggregate_program'] = function(block) {
@@ -298,14 +289,19 @@ scafiGenerator['aggregate_program'] = function(block) {
     return standardImportCode + scafiImportCode + otherCode;
 }
 
-//
-// Basic
-// 
-scafiGenerator['output'] = (block) => extractCode("OUTPUT_VALUE")(block)[0];
 
-// 
-// Aggregate
-//
+// #region Basic
+
+let outputExtractor = CodeExtractor.builder()
+    .withInputName("OUTPUT_VALUE")
+    .build()
+scafiGenerator['output'] = (block) => outputExtractor(block)[0];
+
+// #endregion
+
+
+// #region Aggregate
+
 scafiGenerator['nbr'] = CodeExtractor.builder()
     .withInputName("EXPRESSION")
     .withPrepend("nbr { ")
@@ -332,10 +328,11 @@ scafiGenerator['branch'] = (block) => {
 
 scafiGenerator['mux'] = scafiGenerator['branch']; // Same names and same code
 
+// #endregion
 
-//
-// Utilities
-//
+
+// #region Utilities
+
 scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
 
 scafiGenerator['distance_to'] = CodeExtractor.builder()
@@ -361,9 +358,34 @@ scafiGenerator['distance_between'] = CodesExtractor.builder()
     .withJoin(", ")
     .build()
 
-//
-// Operators
-//
+// #endregion
+
+
+// #region Sensors
+
+scafiGenerator['sense'] = (block) => {
+    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
+    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
+    const code = `sense[${type}](${name})`;
+    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
+}
+
+// #endregion
+
+
+// #region Actuators
+
+let ledAllToExtractor = CodeExtractor.builder()
+    .withInputName("COLOR")
+    .withPrepend("ledAll to ")
+    .build();
+scafiGenerator['led_all_to'] = ledAllToExtractor
+
+// #endregion
+
+
+// #region Operators
+
 scafiGenerator['equals'] = CodesExtractor.builder()
     .withInputName("LEFT")
     .withInputName("RIGHT")
@@ -375,68 +397,6 @@ scafiGenerator['boolean_operation'] = (block) => CodesExtractor.builder()
     .withInputName("RIGHT")
     .withJoin(" " + block.getFieldValue("OPERATOR") + " ")
     .build()(block)
-
-//
-// Types
-//
-let classExtractor =
-    FieldExtractor.builder()
-    .withFieldName("NAME")
-    .build();
-scafiGenerator['class_integer'] = classExtractor;
-scafiGenerator['class_double'] = classExtractor
-scafiGenerator['class_boolean'] = classExtractor
-scafiGenerator['class_string'] = classExtractor
-scafiGenerator['class_other'] = classExtractor
-
-
-// 
-// Values
-//
-let valueExtractor = FieldExtractor.builder()
-    .withFieldName("VALUE")
-    .build();
-scafiGenerator['integer_value'] = valueExtractor
-scafiGenerator['double_value'] = valueExtractor
-scafiGenerator['boolean_value'] = valueExtractor
-
-let stringValueExtractor = FieldExtractor.builder()
-    .withFieldName("VALUE")
-    .withPrepend('"')
-    .withAppend('"')
-    .build()
-scafiGenerator['string_value'] = stringValueExtractor
-scafiGenerator['color_value'] = stringValueExtractor
-scafiGenerator['tuple_value'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
-scafiGenerator['random_value'] = extractCode("MAX", "Random.nextInt(", ")");
-scafiGenerator['random_value_between'] = extractCodes(["MIN", "MAX"], ", ", "Random.between(", ")");
-
-
-
-
-
-scafiGenerator['sense'] = (block) => {
-    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
-    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
-    const code = `sense[${type}](${name})`;
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-
-/* FUNCTIONS */
-let getterExtractor = FieldExtractor.builder().withFieldName("NAME").build();
-scafiGenerator['getter'] = getterExtractor
-
-let ledAllToExtractor = CodeExtractor.builder()
-    .withInputName("COLOR")
-    .withPrepend("ledAll to ")
-    .build();
-scafiGenerator['led_all_to'] = ledAllToExtractor
-
-
-
-
-
 
 scafiGenerator['number_compare'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
@@ -468,6 +428,7 @@ scafiGenerator['number_compare'] = function(block) {
 
     return [code, order];
 }
+
 scafiGenerator['number_operation'] = function(block) {
     const operation = block.getFieldValue("OPERATOR");
 
@@ -494,6 +455,118 @@ scafiGenerator['number_operation'] = function(block) {
     const code = first + operator + second;
     return [code, order];
 }
+
+// #endregion
+
+
+// #region Values
+
+let valueExtractor = FieldExtractor.builder()
+    .withFieldName("VALUE")
+    .build();
+scafiGenerator['integer_value'] = valueExtractor
+scafiGenerator['double_value'] = valueExtractor
+scafiGenerator['boolean_value'] = valueExtractor
+
+let stringValueExtractor = FieldExtractor.builder()
+    .withFieldName("VALUE")
+    .withPrepend('"')
+    .withAppend('"')
+    .build()
+scafiGenerator['string_value'] = stringValueExtractor
+scafiGenerator['color_value'] = stringValueExtractor
+
+let tupleExtractor = CodesExtractor.builder()
+    .withInputName("VALUE_1")
+    .withInputName("VALUE_2")
+    .withJoin(", ")
+    .withPrepend("(")
+    .withAppend(")")
+    .build();
+scafiGenerator['tuple_value'] = tupleExtractor;
+
+let randomValueExtractor = CodeExtractor.builder()
+    .withInputName("MAX")
+    .withPrepend("Random.nextInt(")
+    .withAppend(")")
+    .build();
+scafiGenerator['random_value'] = randomValueExtractor
+
+let randomValueBetweenExtractor = CodesExtractor.builder()
+    .withInputName("MIN")
+    .withInputName("MAX")
+    .withJoin(", ")
+    .withPrepend("Random.between(")
+    .withAppend(")")
+    .build();
+scafiGenerator['random_value_between'] = randomValueBetweenExtractor
+
+// #endregion
+
+
+// #region Types
+
+let classExtractor =
+    FieldExtractor.builder()
+    .withFieldName("NAME")
+    .build();
+scafiGenerator['class_integer'] = classExtractor;
+scafiGenerator['class_double'] = classExtractor
+scafiGenerator['class_boolean'] = classExtractor
+scafiGenerator['class_string'] = classExtractor
+scafiGenerator['class_other'] = classExtractor
+
+// #endregion
+
+
+// #region Functions
+
+let returnExtractor = CodeExtractor.builder()
+    .withInputName("RETURN")
+    .build()
+scafiGenerator['return'] = (block) => returnExtractor(block)[0]
+
+scafiGenerator['function'] = (block) => {
+    let def = block.getFieldValue('FUNCTION_NAME');
+    let code = Blockly.ScaFi.statementToCode(block, 'BODY');
+    return `def ${def}:\n${code}\n`;
+}
+scafiGenerator['function_1_param'] = (block) => {
+    let def = block.getFieldValue('FUNCTION_NAME');
+    let param = block.getFieldValue('PARAM_NAME');
+    let type = Blockly.ScaFi.valueToCode(block, 'PARAM_TYPE', scafiGenerator.ORDER_NONE);
+    let code = Blockly.ScaFi.statementToCode(block, 'BODY')
+    return `def ${def}(${param}: ${type}):\n${code}\n`;
+}
+scafiGenerator['function_2_params'] = (block) => {}
+scafiGenerator['function_3_params'] = (block) => {}
+
+scafiGenerator['call_function'] = scafiGenerator['getter'] // same function
+
+scafiGenerator['call_function_1_param'] = (block) => {
+    let name = block.getFieldValue('NAME');
+    let param = Blockly.ScaFi.valueToCode(block, 'PARAM', scafiGenerator.ORDER_NONE);
+    return [`${name}(${param})`, scafiGenerator.ORDER_FUNCTION_CALL];
+}
+scafiGenerator['call_function_2_param'] = (block) => {
+    let name = block.getFieldValue('NAME');
+    let param = Blockly.ScaFi.valueToCode(block, 'PARAM_1', scafiGenerator.ORDER_NONE);
+    let param2 = Blockly.ScaFi.valueToCode(block, 'PARAM_2', scafiGenerator.ORDER_NONE);
+    return `${name}(${param}, ${param2})`;
+}
+scafiGenerator['call_function_3_param'] = (block) => {
+    let name = block.getFieldValue('NAME');
+    let param = Blockly.ScaFi.valueToCode(block, 'PARAM_1', scafiGenerator.ORDER_NONE);
+    let param2 = Blockly.ScaFi.valueToCode(block, 'PARAM_2', scafiGenerator.ORDER_NONE);
+    let param3 = Blockly.ScaFi.valueToCode(block, 'PARAM_3', scafiGenerator.ORDER_NONE);
+    return `${name}(${param}, ${param2}, ${param3})`;
+}
+
+// #endregion
+
+
+// #region Definitions
+
 scafiGenerator['define'] = function(block) {
     const defName = block.getFieldValue('NAME');
     const input = block.getInput('VALUE');
@@ -508,7 +581,7 @@ scafiGenerator['define'] = function(block) {
     if (type && type.length) {
         code += " : " + type[0]
     }
-    code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_ASSIGNMENT);
+    code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_NONE);
     return code;
 }
 scafiGenerator['val'] = function(block) {
@@ -525,17 +598,35 @@ scafiGenerator['val'] = function(block) {
     if (type && type.length) {
         code += " : " + type[0]
     }
-    code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_ASSIGNMENT);
+    code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_NONE);
+    return code;
+}
+scafiGenerator['var'] = function(block) {
+    const defName = block.getFieldValue('NAME');
+    const input = block.getInput('VALUE');
+    const connection = input.connection;
+    const targetBlock = connection.targetBlock();
+    let type = null;
+    if (targetBlock) {
+        type = targetBlock.outputConnection.getCheck();
+    }
+
+    let code = "val " + defName;
+    if (type && type.length) {
+        code += " : " + type[0]
+    }
+    code += " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_NONE);
     return code;
 }
 
-scafiGenerator['function_no_return'] = (block) => {
-    let def = block.getFieldValue('FUNCTION_NAME');
-    let code = Blockly.ScaFi.statementToCode(block, 'BODY')
-    return `def ${def}:\n  ${code} \n`;
-}
+// #endregion
 
-// scafiGenerator['function_1_param'] = (block) => ["", scafiGenerator.ORDER_FUNCTION_CALL];
+
+// GETTER
+let getterExtractor = FieldExtractor.builder().withFieldName("NAME").build();
+scafiGenerator['getter'] = getterExtractor
+
+
 
 
 //scrub_ is the common tasks for generating code from blocks, called on every block.
