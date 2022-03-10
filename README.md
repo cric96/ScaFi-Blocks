@@ -53,11 +53,13 @@ The Blockly environment setup and code generator are written in JavaScript in th
 
 
 ## How to add or edit toolbox categories
-1. Go to *Workspace Factory* section.
-2. Click on *Load to Edit* and select the [config/toolbox.xml](src/main/resources/config/toolbox.xml).
-3. Define or edit the categories using the tool.
-4. Click *Export*, select *Toolbox* and overwrite the [config/toolbox.xml](src/main/resources/config/toolbox.xml) file.
-5. Add `custom="Functions"` attribute to the `Functions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
-6. Add `custom="Definitions"` attribute to the `Definitions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#).
+2. Click on *Import Block Library* and upload the file [config/library.xml](src/main/resources/config/library.xml).
+3. Go to *Workspace Factory* section.
+4. Click on *Load to Edit* and select the [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+5. Define or edit the categories using the tool.
+6. Click *Export*, select *Toolbox* and overwrite the [config/toolbox.xml](src/main/resources/config/toolbox.xml) file.
+7. Add `custom="Functions"` attribute to the `Functions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+8. Add `custom="Definitions"` attribute to the `Definitions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
 
 
