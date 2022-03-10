@@ -72,7 +72,8 @@
       <field name="VALUE">#ffff00</field>
     </block>
     <block type="tuple_value"></block>
-    <block type="random"></block>
+    <block type="random_value"></block>
+    <block type="random_value_between"></block>
   </category>
   <category name="Type">
     <block type="class_integer">
@@ -91,7 +92,7 @@
       <field name="NAME"></field>
     </block>
   </category>
-  <category name="Function" custom="FUNCTIONS">
+  <category name="Function">
     <block type="function_no_return">
       <field name="FUNCTION_NAME">functionName</field>
     </block>

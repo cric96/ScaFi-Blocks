@@ -249,7 +249,8 @@ function extractCodes(fieldNames, join, prepend = "", append = "", internalOrder
 scafiGenerator['aggregate_program'] = function(block) {
 
     const standardImportMap = {
-        "random": ["java.util.Random"]
+        "random_value": ["scala.util.Random"],
+        "random_value_between": ["scala.util.Random"]
     }
 
     const scafiImportMap = {
@@ -266,7 +267,7 @@ scafiGenerator['aggregate_program'] = function(block) {
     const allBlocks = workspace.getAllBlocks();
 
     for (const block of allBlocks) {
-        if (block.type in standardImportArray) {
+        if (block.type in standardImportMap) {
             let modules = standardImportMap[block.type];
             for (const module of modules) {
                 if (!standardImportArray.includes(module)) {
@@ -284,7 +285,7 @@ scafiGenerator['aggregate_program'] = function(block) {
         }
     }
 
-    let standardImportCode = standardImportArray.map(module => "import " + module + ";").join("\n");
+    let standardImportCode = standardImportArray.map(module => "import " + module + ";").join("\n") + "\n";
     let scafiImportCode = "";
 
     if (scafiImportArray.length > 0) {
@@ -407,7 +408,8 @@ let stringValueExtractor = FieldExtractor.builder()
 scafiGenerator['string_value'] = stringValueExtractor
 scafiGenerator['color_value'] = stringValueExtractor
 scafiGenerator['tuple_value'] = extractCodes(["VALUE_1", "VALUE_2"], ", ", "(", ")");
-
+scafiGenerator['random_value'] = extractCode("MAX", "Random.nextInt(", ")");
+scafiGenerator['random_value_between'] = extractCodes(["MIN", "MAX"], ", ", "Random.between(", ")");
 
 
 

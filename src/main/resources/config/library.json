@@ -375,30 +375,6 @@
   "helpUrl": ""
 },
 {
-  "type": "random",
-  "message0": "Random number %1 between %2 and %3",
-  "args0": [
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_value",
-      "name": "MIN",
-      "check": "Number"
-    },
-    {
-      "type": "input_value",
-      "name": "MAX",
-      "check": "Number"
-    }
-  ],
-  "inputsInline": true,
-  "output": "Number",
-  "colour": 230,
-  "tooltip": "Random number between edges",
-  "helpUrl": ""
-},
-{
   "type": "mid",
   "message0": "mid",
   "output": "String",
@@ -799,5 +775,48 @@
   "nextStatement": null,
   "colour": 230,
   "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "random_value",
+  "message0": "Random number %1 from 0 to %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "MAX",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Number",
+  "colour": 230,
+  "tooltip": "Random number between edges",
+  "helpUrl": ""
+},
+{
+  "type": "random_value_between",
+  "message0": "Random number %1 between %2 and %3",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "MIN",
+      "check": "Number"
+    },
+    {
+      "type": "input_value",
+      "name": "MAX",
+      "check": "Number"
+    }
+  ],
+  "inputsInline": true,
+  "output": "Number",
+  "colour": 230,
+  "tooltip": "Random number between edges",
   "helpUrl": ""
 }]
