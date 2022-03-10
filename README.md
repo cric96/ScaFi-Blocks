@@ -44,10 +44,20 @@ The Blockly environment setup and code generator are written in JavaScript in th
 - **[blocks_library.xml](src/main/resources/config/library.xml)** this file is not used by blockly2scafi, it's the exported [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) library.
 
 ## How to add or edit blocks
-1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) .
-2. Click on *Import Block Library* and upload the file [blocks_library.xml](src/main/resources/config/library.xml).
+1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#).
+2. Click on *Import Block Library* and upload the file [config/library.xml](src/main/resources/config/library.xml).
 3. Define or edit the shape of the blocks using the tool.
-4. Insert or edit the Blockly definition JSON in [blocks_library.js](src/main/resources/blocks_library.js).
-5. Add the block in the toolbox in [blockly2scafi.js](src/main/resources/blockly2scafi.js).
-6. Create or edit the code generator function of the block in [scafi_generator.js](src/main/resources/scafi_generator.js)
-7. Remember to download the block library xml from [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) and save it in [blocks_library.xml](src/main/resources/config/library.xml).
+4. Go to *Block Exporter*, select *All Stored in Block Library* and export only the *Block Definitions* overwriting the [config/library.json](src/main/resources/config/library.json) file. 
+5. Create or edit the code generator function of the block in [scafi_generator.js](src/main/resources/scafi_generator.js).
+6. Remember to download the block library xml from [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) and save it in [config/library.xml](src/main/resources/config/library.xml).
+
+
+## How to add or edit toolbox categories
+1. Go to *Workspace Factory* section.
+2. Click on *Load to Edit* and select the [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+3. Define or edit the categories using the tool.
+4. Click *Export*, select *Toolbox* and overwrite the [config/toolbox.xml](src/main/resources/config/toolbox.xml) file.
+5. Add `custom="Functions"` attribute to the `Functions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+6. Add `custom="Definitions"` attribute to the `Definitions` category in [config/toolbox.xml](src/main/resources/config/toolbox.xml).
+
+
