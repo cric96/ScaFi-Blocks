@@ -24,7 +24,9 @@ object Generators {
     ActuatorsGenerator,
     OperatorsGenerator,
     ValuesGenerator,
-    TypesGenerator
+    TypesGenerator,
+    FunctionsGenerator,
+    DefinitionsGenerator
   )
 
   def generateAll: Unit = generators foreach {_.generate}

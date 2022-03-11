@@ -9,11 +9,13 @@ import scala.scalajs.js.annotation.JSGlobal
 @js.native
 trait ScaFi extends js.Object {
 
+
   def addCodeTupleExtractor(blockName: String, codeTupleExtractor: Extractor): Unit = js.native
   def addDirectCodeExtractor(blockName: String, directCodeExtractor: Extractor): Unit = js.native;
 
   def workspaceToCode(workspace: Workspace): String = js.native
   def valueToCode(block: Block, inputName: String, internalOrder: Order): String = js.native
+  def statementToCode(block: Block, blockName: String): String = js.native
 }
 
 @js.native
