@@ -28,6 +28,19 @@ trait Block extends js.Object {
 
 object Orders {
   val NONE: Order = 99
+  val ORDER_ATOMIC: Order = 0
+  val ORDER_FUNCTION_CALL: Order = 2 //()
+  val ORDER_MULTIPLICATION: Order = 5.1 // *
+  val ORDER_DIVISION: Order = 5.2 // /
+  val ORDER_MODULUS: Order = 5.3 // %
+  val ORDER_SUBTRACTION: Order = 6.1 // -
+  val ORDER_ADDITION: Order = 6.2 // +
+  val ORDER_RELATIONAL: Order = 8 // < <= > >=
+  val ORDER_EQUALITY: Order = 12 // == != === !==
+  val ORDER_LOGICAL_AND: Order = 13 // &&
+  val ORDER_LOGICAL_OR: Order = 14 // ||&&
+  val ORDER_ASSIGNMENT: Order = 20 // =
+  val ORDER_NONE: Order = 99
 }
 
 @js.native

@@ -10,6 +10,6 @@ trait Extractable {
 }
 
 object Extractable {
-    type Order = Int
+    type Order = Double
     type Extractor = js.Function1[Block, js.Tuple2[String, Order]]
 }

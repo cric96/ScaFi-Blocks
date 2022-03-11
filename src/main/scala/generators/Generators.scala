@@ -22,6 +22,7 @@ object Generators {
     UtilitiesGenerator,
     SensorsGenerator,
     ActuatorsGenerator,
+    OperatorsGenerator,
     ValuesGenerator,
     TypesGenerator
   )

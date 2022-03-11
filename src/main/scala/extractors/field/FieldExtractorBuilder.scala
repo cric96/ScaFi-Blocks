@@ -7,7 +7,7 @@ import extractors.Extractable.Order
 class FieldExtractorBuilder extends AbstractExtractorBuilder {
 
   private var fieldName: String = "";
-  private var order = 0;
+  private var order: Order = 0;
 
   def withFieldName(fieldName: String): FieldExtractorBuilder = {
     this.fieldName = fieldName;
