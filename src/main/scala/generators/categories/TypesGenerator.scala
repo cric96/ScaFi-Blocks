@@ -10,7 +10,7 @@ object TypesGenerator extends Generator {
     .withFieldName("NAME")
     .build
 
-  override def generators: Map[String, Extractable] = Map(
+  override protected def codeTupleGenerators: Map[String, Extractable] = Map(
     "class_integer" -> classExtractor,
     "class_double" -> classExtractor,
     "class_boolean" -> classExtractor,
@@ -18,4 +18,5 @@ object TypesGenerator extends Generator {
     "class_other" -> classExtractor
   )
 
+  override protected def directCodeGenerators: Map[String, Extractable] = Map()
 }

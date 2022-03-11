@@ -8,7 +8,9 @@ import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
 trait ScaFi extends js.Object {
-  def addGenerator(blockName: String, extractor: Extractor): Unit = js.native
+
+  def addCodeTupleExtractor(blockName: String, codeTupleExtractor: Extractor): Unit = js.native
+  def addDirectCodeExtractor(blockName: String, directCodeExtractor: Extractor): Unit = js.native;
 
   def workspaceToCode(workspace: Workspace): String = js.native
   def valueToCode(block: Block, inputName: String, internalOrder: Order): String = js.native
@@ -22,6 +24,10 @@ trait Workspace extends js.Object {
 @js.native
 trait Block extends js.Object {
   def getFieldValue(fieldName: String): String = js.native;
+}
+
+object Orders {
+  val NONE: Order = 99
 }
 
 @js.native

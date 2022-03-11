@@ -41,7 +41,7 @@ object ValuesGenerator extends Generator {
     .withAppend(")")
     .build
 
-  val generators = Map[String, Extractable](
+  override protected def codeTupleGenerators = Map[String, Extractable](
     "integer_value" -> basicValueExtractor,
     "double_value" -> basicValueExtractor,
     "boolean_value" -> basicValueExtractor,
@@ -55,4 +55,5 @@ object ValuesGenerator extends Generator {
     "random_value_between" -> randomValueBetweenExtractor
   )
 
+  override protected def directCodeGenerators: Map[String, Extractable] = Map()
 }

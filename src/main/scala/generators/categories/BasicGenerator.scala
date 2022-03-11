@@ -6,5 +6,13 @@ import extractors.code.CodeExtractor
 import generators.Generator
 
 object BasicGenerator extends Generator{
-  override def generators: Map[String, Extractable] = ???
+
+  private val outputGenerator = CodeExtractor.builder
+    .withInputName("OUTPUT_VALUE")
+    .build
+
+  override protected def codeTupleGenerators: Map[String, Extractable] = Map()
+  override protected def directCodeGenerators: Map[String, Extractable] = Map(
+    "output" -> outputGenerator
+  )
 }

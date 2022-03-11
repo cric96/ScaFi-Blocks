@@ -293,100 +293,6 @@ scafiGenerator['aggregate_program'] = function(block) {
 }
 
 
-// #region Basic
-
-let outputExtractor = CodeExtractor.builder()
-    .withInputName("OUTPUT_VALUE")
-    .build()
-scafiGenerator['output'] = (block) => outputExtractor(block)[0];
-
-// #endregion
-
-
-// #region Aggregate
-
-scafiGenerator['nbr'] = CodeExtractor.builder()
-    .withInputName("EXPRESSION")
-    .withPrepend("nbr { ")
-    .withAppend(" }")
-    .build()
-
-scafiGenerator['branch'] = (block) => {
-
-    let conditionExtractor = CodeExtractor.builder()
-        .withInputName("CONDITION")
-        .withPrepend("branch(")
-        .withAppend(") {\n  ")
-        .build();
-
-    let branchesExtractor = CodesExtractor.builder()
-        .withInputName("FIRST_BRANCH")
-        .withInputName("SECOND_BRANCH")
-        .withJoin("\n}{\n  ")
-        .withAppend("\n}")
-        .build()
-
-    return [conditionExtractor(block)[0] + branchesExtractor(block)[0], scafiGenerator.ORDER_FUNCTION_CALL]
-}
-
-scafiGenerator['mux'] = scafiGenerator['branch']; // Same names and same code
-
-// #endregion
-
-
-// #region Utilities
-
-scafiGenerator['mid'] = (block) => ["mid", scafiGenerator.ORDER_FUNCTION_CALL];
-
-scafiGenerator['distance_to'] = CodeExtractor.builder()
-    .withInputName("SRC")
-    .withPrepend("distanceTo(")
-    .withAppend(")")
-    .build()
-
-scafiGenerator['channel'] = CodesExtractor.builder()
-    .withInputName("SOURCE")
-    .withInputName("TARGET")
-    .withInputName("WIDTH")
-    .withPrepend("channel(")
-    .withAppend(")")
-    .withJoin(", ")
-    .build()
-
-scafiGenerator['distance_between'] = CodesExtractor.builder()
-    .withInputName("SOURCE")
-    .withInputName("TARGET")
-    .withPrepend("distanceBetween(")
-    .withAppend(")")
-    .withJoin(", ")
-    .build()
-
-// #endregion
-
-
-// #region Sensors
-
-scafiGenerator['sense'] = (block) => {
-    const type = Blockly.ScaFi.valueToCode(block, "TYPE", scafiGenerator.ORDER_NONE);
-    const name = Blockly.ScaFi.valueToCode(block, "SENSOR_NAME", scafiGenerator.ORDER_NONE);
-    const code = `sense[${type}](${name})`;
-    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
-}
-
-// #endregion
-
-
-// #region Actuators
-
-let ledAllToExtractor = CodeExtractor.builder()
-    .withInputName("COLOR")
-    .withPrepend("ledAll to ")
-    .build();
-scafiGenerator['led_all_to'] = ledAllToExtractor
-
-// #endregion
-
-
 // #region Operators
 
 scafiGenerator['equals'] = CodesExtractor.builder()
@@ -589,7 +495,11 @@ scafiGenerator.scrub_ = function(block, code, opt_thisOnly) {
     return code + nextCode;
 };
 
-scafiGenerator.addGenerator = function(blockName, extractor) {
+scafiGenerator.addCodeTupleExtractor = function(blockName, extractor) {
     scafiGenerator[blockName] = extractor;
 }
+scafiGenerator.addDirectCodeExtractor = function(blockName, extractor) {
+    scafiGenerator[blockName] = (block) => extractor(block)[0];
+}
+
 Blockly.ScaFi = scafiGenerator;
