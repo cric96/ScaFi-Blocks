@@ -1,6 +1,6 @@
 package generators.categories
 
-import blockly2scafi.{Block, Orders}
+import blockly2scafi.{Block, Blockly, Orders}
 import extractors.Extractable
 import extractors.Extractable.Extractor
 import extractors.code.{CodeExtractor, CodesExtractor}
@@ -8,6 +8,60 @@ import generators.Generator
 
 object AggregateGenerator extends Generator {
 
+  private val aggregateProgramGenerator = new Extractable {
+
+    override def getExtractor: Extractor = (block: Block) => {
+      val standardImportMap = Map(
+        "random_value" -> Seq("scala.util.Random"),
+        "random_value_between" -> Seq("scala.util.Random")
+      )
+
+      val scafiImportMap = Map(
+        "distance_to" -> Seq("StandardSensors", "BlockG"),
+        "distance_between" -> Seq("StandardSensors", "BlockG"),
+        "channel" -> Seq("StandardSensors", "BlockG"),
+        "distance_between" -> Seq("Actuation")
+      )
+
+      var standardImportArray = Seq[String]()
+      var scafiImportArray = Seq[String]()
+
+      val workspace = block.workspace;
+      val allBlocks = workspace.getAllBlocks()
+
+      allBlocks.foreach(_block => {
+        if (standardImportMap.contains(_block.`type`)) {
+          val modules = standardImportMap(_block.`type`)
+          modules.foreach(module => {
+            if (!standardImportArray.contains(module)) {
+              standardImportArray = standardImportArray :+ module
+            }
+          })
+        }
+
+        if (scafiImportMap.contains(_block.`type`)){
+          val modules = scafiImportMap(_block.`type`)
+          modules.foreach(module => {
+            if (!scafiImportArray.contains(module)){
+              scafiImportArray = scafiImportArray :+ module
+            }
+          })
+        }
+      })
+
+      val standardImportCode = standardImportArray.map(module => "import " + module + ";").mkString("\n") + "\n";
+      var scafiImportCode = "";
+
+      if (scafiImportArray.nonEmpty) {
+        scafiImportCode = "//using " + scafiImportArray.mkString(", ") + "\n";
+      }
+
+      val otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock("AGGREGATE_PROGRAM_MAIN"), false)
+      //Not using statementToCode to avoid first INDENT
+
+      (standardImportCode + scafiImportCode + otherCode, Orders.NONE)
+    }
+  }
   private val nbrGenerator = CodeExtractor.builder
     .withInputName("EXPRESSION")
     .withPrepend("nbr { ")
@@ -40,5 +94,7 @@ object AggregateGenerator extends Generator {
     "mux" -> muxGenerator,
     "branch" -> branchGenerator
   )
-  override protected def directCodeGenerators: Map[String, Extractable] = Map()
+  override protected def directCodeGenerators: Map[String, Extractable] = Map(
+    "aggregate_program" -> aggregateProgramGenerator
+  )
 }
