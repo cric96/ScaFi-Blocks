@@ -7,7 +7,7 @@ import generators.categories._
 
 trait Generator {
 
-  def generators: Map[String, Extractable]
+  protected def generators: Map[String, Extractable]
 
   def generate: Unit = {
     generators foreach { elem => Blockly.ScaFi.addGenerator(elem._1, elem._2.getExtractor) }
@@ -17,7 +17,7 @@ trait Generator {
 
 object Generators {
 
-  def generators: Seq[Generator] = Seq(
+  private def generators: Seq[Generator] = Seq(
     ValuesGenerator,
     TypesGenerator
   )

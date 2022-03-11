@@ -6,10 +6,10 @@ import extractors.{AbstractExtractorBuilder, Extractable}
 class CodeExtractorBuilder extends AbstractExtractorBuilder {
 
   private var inputName: String = "";
-  private var internalOrder: Order = 1;
-  private var externalOrder: Order = 1;
+  protected var internalOrder: Order = 1;
+  protected var externalOrder: Order = 1;
 
-  def withFieldName(inputName: String): this.type = {
+  def withInputName(inputName: String): this.type = {
     this.inputName = inputName;
     this
   }

@@ -469,69 +469,6 @@ scafiGenerator['number_operation'] = function(block) {
 // #endregion
 
 
-// #region Values
-/*
-let valueExtractor = FieldExtractor.builder()
-    .withFieldName("VALUE")
-    .build();
-scafiGenerator['integer_value'] = valueExtractor
-scafiGenerator['double_value'] = valueExtractor
-scafiGenerator['boolean_value'] = valueExtractor
-
-let stringValueExtractor = FieldExtractor.builder()
-    .withFieldName("VALUE")
-    .withPrepend('"')
-    .withAppend('"')
-    .build()
-scafiGenerator['string_value'] = stringValueExtractor
-scafiGenerator['color_value'] = stringValueExtractor
-
-*/
-
-let tupleExtractor = CodesExtractor.builder()
-    .withInputName("VALUE_1")
-    .withInputName("VALUE_2")
-    .withJoin(", ")
-    .withPrepend("(")
-    .withAppend(")")
-    .build();
-scafiGenerator['tuple_value'] = tupleExtractor;
-
-let randomValueExtractor = CodeExtractor.builder()
-    .withInputName("MAX")
-    .withPrepend("Random.nextInt(")
-    .withAppend(")")
-    .build();
-scafiGenerator['random_value'] = randomValueExtractor
-
-let randomValueBetweenExtractor = CodesExtractor.builder()
-    .withInputName("MIN")
-    .withInputName("MAX")
-    .withJoin(", ")
-    .withPrepend("Random.between(")
-    .withAppend(")")
-    .build();
-scafiGenerator['random_value_between'] = randomValueBetweenExtractor
-
-// #endregion
-
-
-// #region Types
-
-/*
-let classExtractor =
-    FieldExtractor.builder()
-    .withFieldName("NAME")
-    .build();
-scafiGenerator['class_integer'] = classExtractor;
-scafiGenerator['class_double'] = classExtractor
-scafiGenerator['class_boolean'] = classExtractor
-scafiGenerator['class_string'] = classExtractor
-scafiGenerator['class_other'] = classExtractor
-*/
-// #endregion
-
-
 // #region Functions
 
 let returnExtractor = CodeExtractor.builder()
