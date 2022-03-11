@@ -1,17 +1,12 @@
-package main.scala.extractors.field
-import main.scala.extractors.Extractable
-import main.scala.extractors.Extractable.Order
+package extractors.field
+import extractors.Extractable
+import extractors.Extractable._
+import blockly2scafi.Block
 
-import scala.scalajs.js
-import scala.scalajs.js.annotation.JSGlobal
-import main.scala.blockly2scafi.Block
-
-class FieldExtractor(fieldName: String, prepend: String = "", append: String = "", order: Order) extends Extractable {
-
-  override def extract: (Block) => (String, Order) = (block: Block) => (prepend + block.getFieldValue{fieldName} + append, order)
-
+case class FieldExtractor(fieldName: String, prepend: String = "", append: String = "", order: Order) extends Extractable {
+  override def getExtractor: Extractor = (block: Block) => (prepend + block.getFieldValue{fieldName} + append, order)
 }
 
 object FieldExtractor {
-    def builder() = new FieldExtractorBuilder()
+    def builder = new FieldExtractorBuilder()
 }

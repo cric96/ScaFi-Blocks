@@ -42,7 +42,6 @@ class AbstractExtractorBuilder {
     }
 }
 
-/*
 class FieldExtractor {
 
     constructor(fieldName, prepend, append, order) {
@@ -120,7 +119,7 @@ class FieldsExtractorBuilder extends AbstractExtractorBuilder {
             .getExtractor();
     }
 }
-*/
+
 class CodeExtractor {
 
     constructor(inputName, prepend, append, internalOrder, externalOrder) {
@@ -471,7 +470,7 @@ scafiGenerator['number_operation'] = function(block) {
 
 
 // #region Values
-
+/*
 let valueExtractor = FieldExtractor.builder()
     .withFieldName("VALUE")
     .build();
@@ -486,6 +485,8 @@ let stringValueExtractor = FieldExtractor.builder()
     .build()
 scafiGenerator['string_value'] = stringValueExtractor
 scafiGenerator['color_value'] = stringValueExtractor
+
+*/
 
 let tupleExtractor = CodesExtractor.builder()
     .withInputName("VALUE_1")
@@ -517,6 +518,7 @@ scafiGenerator['random_value_between'] = randomValueBetweenExtractor
 
 // #region Types
 
+/*
 let classExtractor =
     FieldExtractor.builder()
     .withFieldName("NAME")
@@ -526,7 +528,7 @@ scafiGenerator['class_double'] = classExtractor
 scafiGenerator['class_boolean'] = classExtractor
 scafiGenerator['class_string'] = classExtractor
 scafiGenerator['class_other'] = classExtractor
-
+*/
 // #endregion
 
 
@@ -650,5 +652,7 @@ scafiGenerator.scrub_ = function(block, code, opt_thisOnly) {
     return code + nextCode;
 };
 
-
+scafiGenerator.addGenerator = function(blockName, extractor) {
+    scafiGenerator[blockName] = extractor;
+}
 Blockly.ScaFi = scafiGenerator;

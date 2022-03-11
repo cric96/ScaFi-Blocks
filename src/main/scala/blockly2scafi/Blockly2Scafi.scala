@@ -1,13 +1,17 @@
-package main.scala.blockly2scafi
+package blockly2scafi
 
+import extractors.Extractable.{Extractor, Order}
 import org.scalajs.dom.raw.Element
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
-trait ScaFi extends js.Object { //ScaFi custom code generator
+trait ScaFi extends js.Object {
+  def addGenerator(blockName: String, extractor: Extractor): Unit = js.native
+
   def workspaceToCode(workspace: Workspace): String = js.native
+  def valueToCode(block: Block, inputName: String, internalOrder: Order): String = js.native
 }
 
 @js.native
@@ -23,9 +27,7 @@ trait Block extends js.Object {
 @js.native
 @JSGlobal
 object Blockly extends js.Object {
-
   def createBlockly2ScafiWorkspace(editor: Element): Workspace = js.native
-
   def ScaFi: ScaFi = js.native
 }
 

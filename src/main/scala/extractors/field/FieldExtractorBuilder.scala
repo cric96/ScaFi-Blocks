@@ -1,19 +1,23 @@
-package main.scala.extractors.field
-import main.scala.extractors.Extractable
-import main.scala.extractors.Extractable.Order
-import main.scala.extractors.AbstractExtractorBuilder
+package extractors.field
+import extractors.Extractable
+import extractors.AbstractExtractorBuilder
+import extractors.Extractable.Order
 
-import scala.scalajs.js
 
 class FieldExtractorBuilder extends AbstractExtractorBuilder {
 
   private var fieldName: String = "";
+  private var order = 0;
 
   def withFieldName(fieldName: String): FieldExtractorBuilder = {
     this.fieldName = fieldName;
     this
   }
 
-  override def build: Extractable = new FieldExtractor(this.fieldName, this.prepend, this.append, this.order)
+  def withOrder(order: Order) : FieldExtractorBuilder = {
+    this.order = order;
+    this
+  }
 
+  override def build: Extractable = new FieldExtractor(this.fieldName, this.prepend, this.append, this.order)
 }

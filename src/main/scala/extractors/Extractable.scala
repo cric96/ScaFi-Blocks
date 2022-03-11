@@ -1,11 +1,15 @@
-package main.scala.extractors
+package extractors
+
+import blockly2scafi.Block
+import extractors.Extractable.Extractor
+
 import scala.scalajs.js
-import main.scala.blockly2scafi.Block;
 
 trait Extractable {
-    def extract: (Block) => (String, Extractable.Order)
+    def getExtractor: Extractor
 }
 
 object Extractable {
     type Order = Int
+    type Extractor = js.Function1[Block, js.Tuple2[String, Order]]
 }

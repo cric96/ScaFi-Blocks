@@ -1,21 +1,31 @@
-package main.scala
-
+import blockly2scafi.{Block, Blockly}
+import extractors.Extractable
+import extractors.field.FieldExtractor
+import generators.Generators
 import org.scalajs.dom.document
 
-import scala.scalajs.js
-import main.scala.blockly2scafi.Blockly
-
+/**
+ * Configuration for the Blockly editor.
+ */
 object Configuration {
   val blocklyEditorId = "blockly-editor"
   val generatedCodeId = "generated-code"
+  val toolboxCodeId = "toolbox"
 }
 
+/**
+ * Entry point for the ScalaJS application.
+ */
 object App {
 
+
+  /**
+   * Setup the blockly editor and the generated code area.
+   */
   def setupWorkspace: Unit = {
-    val toolboxElement = document.getElementById("toolbox")
-    val blocklyEditorElement = document.getElementById(Configuration.blocklyEditorId)
-    val generatedCodeElement = document.getElementById(Configuration.generatedCodeId)
+    val toolboxElement = document getElementById Configuration.toolboxCodeId
+    val blocklyEditorElement = document getElementById Configuration.blocklyEditorId
+    val generatedCodeElement = document getElementById Configuration.generatedCodeId
     val workspace = Blockly.createBlockly2ScafiWorkspace(blocklyEditorElement)
 
     workspace.addChangeListener(() => {
@@ -23,7 +33,12 @@ object App {
     })
   }
 
+  def setupGenerators: Unit = {
+    Generators.generateAll
+  }
+
   def main(args: Array[String]): Unit = {
     this.setupWorkspace
+    this.setupGenerators
   }
 }
