@@ -1,4 +1,4 @@
-package extractors
+package main.scala.extractors
 import scala.scalajs.js
 import main.scala.blockly2scafi.Block;
 

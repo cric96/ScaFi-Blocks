@@ -1,6 +1,6 @@
-package extractors.field
-import extractors.Extractable
-import extractors.Extractable.Order
+package main.scala.extractors.field
+import main.scala.extractors.Extractable
+import main.scala.extractors.Extractable.Order
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal

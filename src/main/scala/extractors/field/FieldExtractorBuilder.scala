@@ -1,7 +1,7 @@
-package extractors.field
-import extractors.Extractable
-import extractors.Extractable.Order
-import extractors.AbstractExtractorBuilder
+package main.scala.extractors.field
+import main.scala.extractors.Extractable
+import main.scala.extractors.Extractable.Order
+import main.scala.extractors.AbstractExtractorBuilder
 
 import scala.scalajs.js
 
