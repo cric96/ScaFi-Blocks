@@ -1,5 +1,6 @@
 const scafiGenerator = new Blockly.Generator('ScaFi');
 
+
 //Operator precedence constants. See https://developers.google.com/blockly/guides/create-custom-blocks/operator-precedence
 scafiGenerator.ORDER_ATOMIC = 0;
 scafiGenerator.ORDER_FUNCTION_CALL = 2; //()
@@ -40,6 +41,8 @@ class AbstractExtractorBuilder {
         return this;
     }
 }
+
+/*
 class FieldExtractor {
 
     constructor(fieldName, prepend, append, order) {
@@ -117,6 +120,7 @@ class FieldsExtractorBuilder extends AbstractExtractorBuilder {
             .getExtractor();
     }
 }
+*/
 class CodeExtractor {
 
     constructor(inputName, prepend, append, internalOrder, externalOrder) {

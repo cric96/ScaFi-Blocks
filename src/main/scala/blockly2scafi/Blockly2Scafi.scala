@@ -16,8 +16,14 @@ trait Workspace extends js.Object {
 }
 
 @js.native
+trait Block extends js.Object {
+  def getFieldValue(fieldName: String): String = js.native;
+}
+
+@js.native
 @JSGlobal
 object Blockly extends js.Object {
+
   def createBlockly2ScafiWorkspace(editor: Element): Workspace = js.native
 
   def ScaFi: ScaFi = js.native
