@@ -1,0 +1,22 @@
+[0m[[0m[0minfo[0m] [0m[0mFull optimizing /mnt/c/Users/alema/Desktop/Tirocinio/blockly2scafi/target/scala-2.12/blockly2scafi-opt.js[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Compute reachability: 466965 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Assemble LinkedClasses: 57508 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: Check IR: 341943 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mLinker: 920444 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Batch mode: true[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Incremental part: 152153 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizing 2046 methods.[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: Optimizer part: 801953 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mOptimizer: 965173 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Compute reachability: 71619 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: Assemble LinkedClasses: 5088 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mRefiner: 89210 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Generate classes: 414921 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Write trees: 28649 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Class tree cache stats: reused: 360 -- invalidated: 385[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: Method tree cache stats: reused: 0 -- invalidated: 1216[0m
+[0m[[0m[0mdebug[0m] [0m[0mEmitter: 478508 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Create trees): 212395 us[0m
+[0m[[0m[0minfo[0m] [0m[0mClosure: 0 error(s), 0 warning(s)[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Compiler pass: 5538516 us[0m
+[0m[[0m[0mdebug[0m] [0m[0mClosure: Write result: 157295 us[0m
