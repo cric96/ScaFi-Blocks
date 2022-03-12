@@ -44,13 +44,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-blockly2scafi is a Blockly environment developed in Scala.js and Javascript with a custom code generator for ScaFi.
+blockly2scafi is a Blockly environment developed in Scala.js with a custom code generator for ScaFi.
 
 ### Built With
 
 * [Blockly](https://developers.google.com/blockly)
-* [Javascript](https://www.javascript.com/)
 * [Scala.js](https://www.scala-js.org/)
+* [Javascript](https://www.javascript.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -99,12 +99,6 @@ Drag and drop the blocks from the relative categories in the toolbox to create a
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 ### Project structure
-The Blockly environment setup and code generator are written in JavaScript in the [resource](src/main/resources) directory:
-
-#### Main folder
-- **[index.html](src/main/resources/index.html)** contains the layout of the web page of blockly2scafi, styled by the css file **[main.css](src/main/resources/main.css)**.
-- **[blockly2scafi.js](src/main/resources/blockly2scafi.js)** initializes the blocky workspace and toolbox.
-- **[scafi_generator.js](src/main/resources/scafi_generator.js)** builds the scafi code generator that translates the Blocks to valid and formatted Scafi Code.
 
 #### Config folder
 - **[config/library.xml](src/main/resources/config/library.xml)** is not used by blockly2scafi, it's the exported [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) library.
@@ -112,12 +106,16 @@ The Blockly environment setup and code generator are written in JavaScript in th
 - **[config/toolbox.xml](src/main/resources/config/toolbox.xml)** contains the exported toolbox definition in XML format.
 - **[config/initialWorkspace.xml](src/main/resources/config/initialWorkspace.xml)** contains the initial workspace structure in XML format.
 
+#### Resource folder
+- **[index.html](src/main/resources/index.html)** contains the layout of the web page of blockly2scafi, styled by the css file **[main.css](src/main/resources/main.css)**.
+- **[blockly2scafi.js](src/main/resources/blockly2scafi.js)** implements some of the facade methods used by Scala to initializes the blocky workspace and also for generating the ScaFi code.
+
 ### How to add or edit blocks
 1. Open [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#).
 2. Click on *Import Block Library* and upload the file [config/library.xml](src/main/resources/config/library.xml).
 3. Define or edit the shape of the blocks using the tool.
 4. Go to *Block Exporter*, select *All Stored in Block Library* and export only the *Block Definitions* overwriting the [config/library.json](src/main/resources/config/library.json) file. 
-5. Create or edit the code generator function of the block in [scafi_generator.js](src/main/resources/scafi_generator.js).
+5. Create or edit the code generator function of the block in the Scala code.
 6. Remember to download the block library xml from [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) and save it in [config/library.xml](src/main/resources/config/library.xml).
 
 ### How to add or edit toolbox categories
