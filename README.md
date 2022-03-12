@@ -15,7 +15,7 @@
   <h3 align="center">blockly2scafi</h3>
 
   <p align="center">
-    A <a href="https://developers.google.com/blockly/">Blockly</a> environment developed in <a href="http://www.scala-js.org/">Scala.js</a> and Javascript with a custom code generator for <a href="https://scafi.github.io/">ScaFi</a>.
+    A <a href="https://developers.google.com/blockly/">Blockly</a> environment developed in <a href="http://www.scala-js.org/">Scala.js</a> with a custom code generator for <a href="https://scafi.github.io/">ScaFi</a>.
     <br />
     <a href="https://alemazzo.github.io/blockly2scafi/"><strong>Try it in Github pages</strong></a>
     <br />
