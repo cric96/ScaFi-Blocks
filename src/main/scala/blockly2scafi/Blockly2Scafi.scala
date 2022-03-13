@@ -1,6 +1,7 @@
 package blockly2scafi
 
-import extractors.Extractable.{Extractor, Order}
+import blockly2scafi.Orders.Order
+import generables.Generable.Generator
 import org.scalajs.dom.raw.Element
 
 import scala.scalajs.js
@@ -8,8 +9,8 @@ import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
 trait ScaFi extends js.Object {
-  def addCodeTupleExtractor(blockName: String, codeTupleExtractor: Extractor): Unit = js.native
-  def addDirectCodeExtractor(blockName: String, directCodeExtractor: Extractor): Unit = js.native;
+  def addValueBlockGenerator(blockName: String, codeTupleExtractor: Generator): Unit = js.native
+  def addUnitBlockGenerator(blockName: String, directCodeExtractor: Generator): Unit = js.native;
 
   def workspaceToCode(workspace: Workspace): String = js.native
   def valueToCode(block: Block, inputName: String, internalOrder: Order): String = js.native
@@ -32,6 +33,7 @@ trait Block extends js.Object {
 }
 
 object Orders {
+  type Order = Double
   val NONE: Order = 99
   val ORDER_ATOMIC: Order = 0
   val ORDER_FUNCTION_CALL: Order = 2 //()

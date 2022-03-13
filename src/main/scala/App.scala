@@ -1,6 +1,6 @@
 import blockly2scafi.{Block, Blockly}
-import extractors.Extractable
-import extractors.field.FieldExtractor
+import generables.Generable
+import generables.field.GenerableField
 import generators.Generators
 import org.scalajs.dom.document
 
@@ -34,7 +34,7 @@ object App {
   }
 
   def setupGenerators: Unit = {
-    Generators.generateAll
+    Generators.addAllGeneratorsToBlockly
   }
 
   def main(args: Array[String]): Unit = {

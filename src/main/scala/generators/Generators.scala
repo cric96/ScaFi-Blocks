@@ -1,33 +1,47 @@
 package generators
 
 import blockly2scafi.Blockly
-import extractors.Extractable
+import generables.Generable
 import generators.categories._
 
 
-trait Generator {
-  protected def codeTupleGenerators: Map[String, Extractable]
-  protected def directCodeGenerators: Map[String, Extractable]
-  def generate: Unit = {
-    codeTupleGenerators foreach { elem => Blockly.ScaFi.addCodeTupleExtractor(elem._1, elem._2.getExtractor) }
-    directCodeGenerators foreach { elem => Blockly.ScaFi.addDirectCodeExtractor(elem._1, elem._2.getExtractor) }
+trait CategoryBlocksGenerators {
+
+  /**
+   * Get the blocks that return somethings (blocks with a left connection).
+   * @return the Map of blockName -> Extractable
+   */
+  protected def generableValueBlocks: Map[String, Generable]
+
+  /**
+   * Get the blocks that doesn't return anythings (blocks with an up/down connection).
+   * @return the Map of blockName -> Extractable
+   */
+  protected def generableUnitBlocks: Map[String, Generable]
+
+  /**
+   * Add the code generation methods for the blocks of the category.
+   */
+  def addGeneratorsToBlockly(): Unit = {
+    generableValueBlocks foreach { elem => Blockly.ScaFi.addValueBlockGenerator(elem._1, elem._2.generator) }
+    generableUnitBlocks foreach { elem => Blockly.ScaFi.addUnitBlockGenerator(elem._1, elem._2.generator) }
   }
 }
 
 object Generators {
 
-  private def generators: Seq[Generator] = Seq(
-    BasicGenerator,
-    AggregateGenerator,
-    UtilitiesGenerator,
-    SensorsGenerator,
-    ActuatorsGenerator,
-    OperatorsGenerator,
-    ValuesGenerator,
-    TypesGenerator,
-    FunctionsGenerator,
-    DefinitionsGenerator
+  private def generators: Seq[CategoryBlocksGenerators] = Seq(
+    Basic,
+    Aggregate,
+    Utilities,
+    Sensors,
+    Actuators,
+    Operators,
+    Values,
+    Types,
+    Functions,
+    Definitions
   )
 
-  def generateAll: Unit = generators foreach {_.generate}
+  def addAllGeneratorsToBlockly(): Unit = generators foreach {_.addGeneratorsToBlockly()}
 }

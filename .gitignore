@@ -1,5 +1,6 @@
 project/project/
 project/target/
+target/
 !target/scala-2.12/blockly2scafi-opt.js
 
 .metals/

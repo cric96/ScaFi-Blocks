@@ -300,9 +300,9 @@ Blockly.ScaFi.scrub_ = function(block, code, opt_thisOnly) {
     return code + nextCode;
 };
 
-Blockly.ScaFi.addCodeTupleExtractor = function(blockName, extractor) {
+Blockly.ScaFi.addValueBlockGenerator = function(blockName, extractor) {
     Blockly.ScaFi[blockName] = extractor;
 }
-Blockly.ScaFi.addDirectCodeExtractor = function(blockName, extractor) {
+Blockly.ScaFi.addUnitBlockGenerator = function(blockName, extractor) {
     Blockly.ScaFi[blockName] = (block) => extractor(block)[0];
 }
