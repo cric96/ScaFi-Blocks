@@ -1,7 +1,4 @@
-import blockly2scafi.{Block, Blockly}
-import generables.Generable
-import generables.field.GenerableField
-import generators.Generators
+import blockly2scafi.Blockly
 import org.scalajs.dom.document
 
 /**

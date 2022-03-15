@@ -1,19 +1,17 @@
 package generables.code
 
-import blockly2scafi.Blockly
 import blockly2scafi.Orders.Order
-import generables.Generable
-import generables.Generable.Generator
+import blockly2scafi.generators.Generable
+import blockly2scafi.generators.Generable.Generator
+import blockly2scafi.{Block, Blockly}
 
 case class GenerableInput(inputName: String, prepend: String, append: String, internalOrder: Order, externalOrder: Order) extends Generable {
 
-  override def generator: Generator = (block) =>
-    (
-      this.prepend
+  override def generator: Generator = (block: Block) =>
+    (this.prepend
       + Blockly.ScaFi.valueToCode(block, this.inputName, this.internalOrder)
       + this.append,
-      this.externalOrder
-    )
+      this.externalOrder)
 }
 
 object GenerableInput {

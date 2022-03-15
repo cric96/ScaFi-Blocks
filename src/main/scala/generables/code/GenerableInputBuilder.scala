@@ -1,7 +1,8 @@
 package generables.code
 
 import blockly2scafi.Orders.Order
-import generables.{AbstractGenerableBuilder, Generable}
+import blockly2scafi.generators.Generable
+import generables.AbstractGenerableBuilder
 
 class GenerableInputBuilder extends AbstractGenerableBuilder {
 

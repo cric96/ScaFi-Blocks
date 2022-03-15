@@ -1,0 +1,6 @@
+
+package: generators.categories
+  classes:
+    - Basic
+    - Aggregate
+    - Utilities

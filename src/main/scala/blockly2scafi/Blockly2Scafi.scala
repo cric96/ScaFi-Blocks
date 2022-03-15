@@ -1,7 +1,7 @@
 package blockly2scafi
 
 import blockly2scafi.Orders.Order
-import generables.Generable.Generator
+import blockly2scafi.generators.Generable.Generator
 import org.scalajs.dom.raw.Element
 
 import scala.scalajs.js
@@ -9,26 +9,34 @@ import scala.scalajs.js.annotation.JSGlobal
 
 @js.native
 trait ScaFi extends js.Object {
-  def addValueBlockGenerator(blockName: String, codeTupleExtractor: Generator): Unit = js.native
-  def addUnitBlockGenerator(blockName: String, directCodeExtractor: Generator): Unit = js.native;
+  def addValueBlockGenerator(blockName: String, valueGenerator: Generator): Unit = js.native
+
+  def addUnitBlockGenerator(blockName: String, unitGenerator: Generator): Unit = js.native;
 
   def workspaceToCode(workspace: Workspace): String = js.native
+
   def valueToCode(block: Block, inputName: String, internalOrder: Order): String = js.native
+
   def statementToCode(block: Block, blockName: String): String = js.native
+
   def blockToCode(block: Block, flag: Boolean): String = js.native
 }
 
 @js.native
 trait Workspace extends js.Object {
   def getAllBlocks(): js.Array[Block] = js.native // parenthesis required for matching with js method!
+
   def addChangeListener(function: js.Function): Unit
 }
 
 @js.native
 trait Block extends js.Object {
   def `type`: String = js.native // backtick required because type is a keyword in scala
+
   def workspace: Workspace = js.native
+
   def getFieldValue(fieldName: String): String = js.native
+
   def getInputTargetBlock(name: String): Block = js.native
 }
 
@@ -54,6 +62,7 @@ object Orders {
 @JSGlobal
 object Blockly extends js.Object {
   def createBlockly2ScafiWorkspace(editor: Element): Workspace = js.native
+
   def ScaFi: ScaFi = js.native
 }
 

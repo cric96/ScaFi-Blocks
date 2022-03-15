@@ -1,5 +1,6 @@
 package generables.code
-import generables.Generable
+
+import blockly2scafi.generators.Generable
 
 class GenerableMultiInputBuilder extends GenerableInputBuilder {
 

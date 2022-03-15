@@ -1,6 +1,7 @@
 package generables.field
+
 import blockly2scafi.Orders.Order
-import generables.Generable
+import blockly2scafi.generators.Generable
 import generables.AbstractGenerableBuilder
 
 
@@ -14,7 +15,7 @@ class GenerableFieldBuilder extends AbstractGenerableBuilder {
     this
   }
 
-  def withOrder(order: Order) : GenerableFieldBuilder = {
+  def withOrder(order: Order): GenerableFieldBuilder = {
     this.order = order;
     this
   }
