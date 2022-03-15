@@ -1,4 +1,4 @@
-import blockly2scafi.Blockly
+import blockly2scafi.{Blockly, Generators}
 import org.scalajs.dom.document
 
 /**
@@ -16,6 +16,11 @@ object Configuration {
 object App {
 
 
+  def main(args: Array[String]): Unit = {
+    this.setupWorkspace
+    this.setupGenerators
+  }
+
   /**
    * Setup the blockly editor and the generated code area.
    */
@@ -32,10 +37,5 @@ object App {
 
   def setupGenerators: Unit = {
     Generators.addAllGeneratorsToBlockly
-  }
-
-  def main(args: Array[String]): Unit = {
-    this.setupWorkspace
-    this.setupGenerators
   }
 }

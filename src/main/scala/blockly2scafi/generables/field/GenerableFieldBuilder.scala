@@ -1,8 +1,8 @@
-package generables.field
+package blockly2scafi.generables.field
 
 import blockly2scafi.Orders.Order
+import blockly2scafi.generables.AbstractGenerableBuilder
 import blockly2scafi.generators.Generable
-import generables.AbstractGenerableBuilder
 
 
 class GenerableFieldBuilder extends AbstractGenerableBuilder {

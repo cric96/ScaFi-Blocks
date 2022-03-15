@@ -2,8 +2,8 @@ package blockly2scafi.generators.categories.basic
 
 import blockly2scafi.Orders
 import blockly2scafi.Orders.Order
+import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.UnitBlockType
-import generables.code.GenerableInput
 
 class OutputBlockType extends UnitBlockType {
   override def name: String = "output"

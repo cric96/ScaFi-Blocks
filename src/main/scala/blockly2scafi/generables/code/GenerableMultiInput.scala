@@ -1,4 +1,4 @@
-package generables.code
+package blockly2scafi.generables.code
 
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable

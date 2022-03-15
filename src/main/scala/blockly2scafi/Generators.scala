@@ -1,4 +1,5 @@
-import blockly2scafi.Blockly
+package blockly2scafi
+
 import blockly2scafi.generators.{UnitBlockType, ValueBlockType}
 
 import scala.scalajs.reflect.Reflect
@@ -66,7 +67,41 @@ object Generators {
     "utilities.MidBlockType",
     "utilities.DistanceToBlockType",
     "utilities.DistanceBetweenBlockType",
-    "utilities.ChannelBlockType"
+    "utilities.ChannelBlockType",
+    "sensors.SenseBlockType",
+    "actuators.LedAllToBlockType",
+    "operations.EqualsBlockType",
+    "operations.BooleanOperationBlockType",
+    "operations.TernaryOperationBlockType",
+    "operations.NumberCompareBlockType",
+    "operations.NumberOperationBlockType",
+    "values.StringValueBlockType",
+    "values.IntegerValueBlockType",
+    "values.DoubleValueBlockType",
+    "values.BooleanValueBlockType",
+    "values.ColorValueBlockType",
+    "values.TupleValueBlockType",
+    "values.RandomValueBlockType",
+    "values.RandomValueBetweenBlockType",
+    "types.IntegerClassBlockType",
+    "types.DoubleClassBlockType",
+    "types.BooleanClassBlockType",
+    "types.StringClassBlockType",
+    "types.OtherClassBlockType",
+    "functions.ReturnBlockType",
+    "functions.FunctionBlockType",
+    "functions.Function1ParamBlockType",
+    "functions.Function2ParamBlockType",
+    "functions.Function3ParamBlockType",
+    "functions.CallFunctionBlockType",
+    "functions.CallFunction1ParamBlockType",
+    "functions.CallFunction2ParamBlockType",
+    "functions.CallFunction3ParamBlockType",
+    "definitions.DefineBlockType",
+    "definitions.ValBlockType",
+    "definitions.VarBlockType",
+    "definitions.GetterBlockType"
+
   )
 
 }

@@ -1,14 +1,14 @@
-package generables.code
+package blockly2scafi.generables.code
 
 import blockly2scafi.Orders.Order
+import blockly2scafi.generables.AbstractGenerableBuilder
 import blockly2scafi.generators.Generable
-import generables.AbstractGenerableBuilder
 
 class GenerableInputBuilder extends AbstractGenerableBuilder {
 
-  private var inputName: String = "";
   protected var internalOrder: Order = 1;
   protected var externalOrder: Order = 1;
+  private var inputName: String = "";
 
   def withInputName(inputName: String): this.type = {
     this.inputName = inputName;

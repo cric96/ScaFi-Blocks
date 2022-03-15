@@ -2,8 +2,8 @@ package blockly2scafi.generators.categories.aggregate
 
 import blockly2scafi.Orders
 import blockly2scafi.Orders.Order
+import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.ValueBlockType
-import generables.code.GenerableInput
 
 class NbrBlockType extends ValueBlockType {
   override def name: String = "nbr"

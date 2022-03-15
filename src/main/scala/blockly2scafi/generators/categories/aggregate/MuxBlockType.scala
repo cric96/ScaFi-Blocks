@@ -1,9 +1,9 @@
 package blockly2scafi.generators.categories.aggregate
 
 import blockly2scafi.Orders.Order
+import blockly2scafi.generables.code.{GenerableInput, GenerableMultiInput}
 import blockly2scafi.generators.ValueBlockType
 import blockly2scafi.{Block, Orders}
-import generables.code.{GenerableInput, GenerableMultiInput}
 
 class MuxBlockType extends ValueBlockType {
   private val _generableCondition = GenerableInput.builder
