@@ -78,6 +78,7 @@ Drag and drop the blocks from the relative categories in the toolbox to create a
 <!-- ROADMAP -->
 ## Roadmap
 
+- [ ] Retrieve blockly library from CDN.
 - [ ] Put return block by default in functions.
 - [ ] Detect return type of functions.
 - [ ] Refactor FOLD operations.
