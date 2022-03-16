@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-16T16:47:15.253Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="LKr1-lVGM5Nz_ea1H1uf" version="17.1.2" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2022-03-16T16:48:59.225Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="Kq71mzvTcS-maM0hfzFy" version="17.1.2" type="github" pages="7">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2500" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2249" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -199,12 +199,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="eY5M8h41Icty328VX7jQ" name="Extractor">
-    <mxGraphModel dx="2272" dy="1794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2031" dy="2091" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-0" />
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-1" parent="LAsJfHfRwgbY6HqDWtyr-0" />
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-2" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Extractor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;span&gt;+ prepend: String&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px&quot;&gt;+ append: String&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px&quot;&gt;+ order: Order&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px&quot;&gt;+ concat(extractor: Extractor, join: String): Extractor&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px&quot;&gt;+ extract(block: Block): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="100" y="-1030" width="280" height="140" as="geometry" />
+          <mxGeometry x="279" y="-1030" width="280" height="140" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=0;startSize=12;endSize=12;" edge="1" parent="LAsJfHfRwgbY6HqDWtyr-1" source="LAsJfHfRwgbY6HqDWtyr-4" target="LAsJfHfRwgbY6HqDWtyr-2">
           <mxGeometry relative="1" as="geometry" />
@@ -213,7 +213,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-4" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;FieldExtractor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ fieldName: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="-20" y="-810" width="150" height="70" as="geometry" />
+          <mxGeometry x="159" y="-810" width="150" height="70" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=0;startSize=12;endSize=12;" edge="1" parent="LAsJfHfRwgbY6HqDWtyr-1" source="LAsJfHfRwgbY6HqDWtyr-5" target="LAsJfHfRwgbY6HqDWtyr-2">
           <mxGeometry relative="1" as="geometry" />
@@ -222,7 +222,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-5" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;InputExtractor&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ inputName: String&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="360" y="-810" width="150" height="70" as="geometry" />
+          <mxGeometry x="539" y="-810" width="150" height="70" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=block;startFill=0;endArrow=none;endFill=0;startSize=12;endSize=12;" edge="1" parent="LAsJfHfRwgbY6HqDWtyr-1" source="LAsJfHfRwgbY6HqDWtyr-7" target="LAsJfHfRwgbY6HqDWtyr-8">
           <mxGeometry relative="1" as="geometry" />
@@ -231,13 +231,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;AbstractExtractorBuilder&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ withAppend(append: String): AbstractExtractorBuilder&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ withPrepend(prepend: String): AbstractExtractorBuilder&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ withOrder(order: Order): AbstractExtractorBuilder&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ build(): Extractor&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="75" y="-520" width="330" height="110" as="geometry" />
+          <mxGeometry x="254" y="-520" width="330" height="110" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-8" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;FieldExtractorBuilder&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ withFieldName(fieldName: String): FieldExtractorBuilder&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ build(): FieldExtractor&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="-105" y="-680" width="320" height="80" as="geometry" />
+          <mxGeometry x="74" y="-680" width="320" height="80" as="geometry" />
         </mxCell>
         <mxCell id="LAsJfHfRwgbY6HqDWtyr-10" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;InputExtractorBuilder&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ withInputName(inputName: String): InputExtractorBuilder&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ build(): InputExtractor&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="LAsJfHfRwgbY6HqDWtyr-1">
-          <mxGeometry x="273.75" y="-680" width="322.5" height="80" as="geometry" />
+          <mxGeometry x="452.75" y="-680" width="322.5" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -331,7 +331,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Kgv6VAHd9Np3VVJYfZxO" name="MVC">
-    <mxGraphModel dx="131" dy="479" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="823" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="ZoVXJtbLsKf8IJBP7dzF-0" />
         <mxCell id="ZoVXJtbLsKf8IJBP7dzF-1" parent="ZoVXJtbLsKf8IJBP7dzF-0" />
