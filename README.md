@@ -89,7 +89,7 @@ on the right section.
 - [X] Refactor FOLD operations.
 - [ ] Refactor sensors management.
 - [X] Built lambda constructs for REP and FOLD constructs.
-- [ ] Implement `minHood` and `minHoodPlus`.
+- [X] Implement `minHood` and `minHoodPlus`.
 - [ ] Implement `if` construct.
 - [ ] Implement `hsl` function.
 - [ ] Implement `G2` function.

@@ -69,6 +69,8 @@ object Generators {
     "aggregate.Lambda2ParamBlockType",
     "fold.FoldHoodBlockType",
     "fold.FoldHoodPlusBlockType",
+    "fold.MinHoodBlockType",
+    "fold.MinHoodPlusBlockType",
     "utilities.MidBlockType",
     "utilities.DistanceToBlockType",
     "utilities.DistanceBetweenBlockType",

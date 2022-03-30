@@ -19,6 +19,8 @@
     <category name="Fold" colour="#5ba58c">
         <block type="foldhood"></block>
         <block type="foldhoodplus"></block>
+        <block type="minhood"></block>
+        <block type="minhoodplus"></block>
     </category>
     <category name="Sensors" colour="#5b80a5">
         <block type="sense">

@@ -3,9 +3,9 @@ package blockly2scafi.generators.categories.utilities
 import blockly2scafi.Orders
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable.Generator
-import blockly2scafi.generators.UnitBlockType
+import blockly2scafi.generators.ValueBlockType
 
-class MidBlockType extends UnitBlockType {
+class MidBlockType extends ValueBlockType {
 
   override def name: String = "mid"
 

@@ -1127,4 +1127,40 @@
   "colour": 230,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "minhood",
+  "message0": "minhood %1 expression: %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "EXPRESSION"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 160,
+  "tooltip": "foldHood",
+  "helpUrl": ""
+},
+{
+  "type": "minhoodplus",
+  "message0": "minhoodplus %1 expression: %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "EXPRESSION"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 160,
+  "tooltip": "foldHood",
+  "helpUrl": ""
 }]
