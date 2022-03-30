@@ -83,6 +83,7 @@ on the right section.
 
 ## Roadmap
 
+- [ ] Retrieve blockly library from CDN.
 - [ ] Put return block by default in functions.
 - [ ] Detect return type of functions.
 - [X] Refactor FOLD operations.
