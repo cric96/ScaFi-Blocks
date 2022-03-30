@@ -75,6 +75,7 @@ object Generators {
     "utilities.DistanceToBlockType",
     "utilities.DistanceBetweenBlockType",
     "utilities.ChannelBlockType",
+    "utilities.NbrRangeBlockType",
     "sensors.SenseBlockType",
     "actuators.LedAllToBlockType",
     "operations.EqualsBlockType",

@@ -12,6 +12,7 @@
     </category>
     <category name="Utilities" colour="#5ba55b">
         <block type="mid"></block>
+        <block type="nbrrange"></block>
         <block type="distance_to"></block>
         <block type="channel"></block>
         <block type="distance_between"></block>

@@ -1096,7 +1096,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 20,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -1124,7 +1124,7 @@
   ],
   "inputsInline": true,
   "output": null,
-  "colour": 230,
+  "colour": 20,
   "tooltip": "",
   "helpUrl": ""
 },
@@ -1162,5 +1162,13 @@
   "output": null,
   "colour": 160,
   "tooltip": "foldHood",
+  "helpUrl": ""
+},
+{
+  "type": "nbrrange",
+  "message0": "nbrRange",
+  "output": null,
+  "colour": 120,
+  "tooltip": "",
   "helpUrl": ""
 }]

@@ -95,7 +95,7 @@ on the right section.
 - [ ] Implement `G2` function.
 - [ ] Implement `C` function.
 - [ ] Implement `S` function.
-- [ ] Implement `nbrRange` function.
+- [X] Implement `nbrRange` function.
 - [ ] Implement `broadcast` function.
 - [ ] Implement modulo operation.
 
