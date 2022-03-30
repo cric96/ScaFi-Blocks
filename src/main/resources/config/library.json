@@ -354,7 +354,7 @@
 },
 {
   "type": "foldhood",
-  "message0": "FoldHood %1 Start %2 Aggregator %3 Expression %4",
+  "message0": "foldhood %1 initial value: %2 aggregator: %3 expression: %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -364,15 +364,14 @@
       "name": "START"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "AGGREGATOR"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "EXPRESSION"
     }
   ],
-  "inputsInline": true,
   "output": null,
   "colour": 160,
   "tooltip": "foldHood",
@@ -380,7 +379,7 @@
 },
 {
   "type": "foldhoodplus",
-  "message0": "FoldHoodPlus %1 Start %2 Aggregator %3 Expression %4",
+  "message0": "foldhoodPlus %1 initial value: %2 aggregator: %3 expression: %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -390,15 +389,14 @@
       "name": "START"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "AGGREGATOR"
     },
     {
-      "type": "input_statement",
+      "type": "input_value",
       "name": "EXPRESSION"
     }
   ],
-  "inputsInline": true,
   "output": null,
   "colour": 160,
   "tooltip": "",
