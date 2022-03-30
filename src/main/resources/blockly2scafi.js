@@ -60,6 +60,7 @@ function addBlocksLibraryToBlocky(library) {
  * @returns the new block list.
  */
 function dynamicallyAddGetterForFunctions(workspace) {
+
     const blockList = [{
             'kind': 'block',
             'type': 'return',
@@ -78,7 +79,15 @@ function dynamicallyAddGetterForFunctions(workspace) {
         {
             'kind': 'block',
             'type': 'function_3_param',
-        }
+        },
+        {
+            'kind': 'block',
+            'type': 'lambda_1_param',
+        },
+        {
+            'kind': 'block',
+            'type': 'lambda_2_param',
+        },
     ];
 
     // Get all the blocks in the workspace
@@ -202,6 +211,40 @@ function dynamicallyAddGetterForFunctions(workspace) {
         });
     });
 
+    defineBlocks.filter(x => x.type == "lambda_1_param").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
+    defineBlocks.filter(x => x.type == "lambda_2_param").forEach(def => {
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_1_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+        blockList.unshift({
+            'kind': 'block',
+            'type': 'getter',
+            'fields': {
+                'NAME': def.getFieldValue('PARAM_2_NAME'),
+            },
+            'data': {
+                'defineBlockId': def.id,
+            }
+        });
+    });
     return blockList;
 };
 

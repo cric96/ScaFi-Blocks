@@ -96,6 +96,8 @@
     </category>
     <category name="Functions" colour="#a5745b" custom="Functions">
         <block type="return"></block>
+        <block type="lambda_1_param"></block>
+        <block type="lambda_2_param"></block>
         <block type="function">
             <field name="FUNCTION_NAME">functionName</field>
             <statement name="BODY">
