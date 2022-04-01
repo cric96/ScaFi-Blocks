@@ -61,34 +61,8 @@ function addBlocksLibraryToBlocky(library) {
  */
 function dynamicallyAddGetterForFunctions(workspace) {
 
-    const blockList = [{
-            'kind': 'block',
-            'type': 'return',
-        }, {
-            'kind': 'block',
-            'type': 'function',
-        },
-        {
-            'kind': 'block',
-            'type': 'function_1_param',
-        },
-        {
-            'kind': 'block',
-            'type': 'function_2_param',
-        },
-        {
-            'kind': 'block',
-            'type': 'function_3_param',
-        },
-        {
-            'kind': 'block',
-            'type': 'lambda_1_param',
-        },
-        {
-            'kind': 'block',
-            'type': 'lambda_2_param',
-        },
-    ];
+    const ignore = ['getter', 'call_function', 'call_function_1_param', 'call_function_2_param', 'call_function_3_param'];
+    const blockList = Blockly.getMainWorkspace().getToolbox().getToolboxItems().filter(t => t.name_ == "Functions")[0].toolboxItemDef_.contents.filter(x => !ignore.some(y => y.type == x.type));
 
     // Get all the blocks in the workspace
     const defineBlocks = blockList.filter(x => x.type != "return").flatMap(x => workspace.getBlocksByType(x.type));
@@ -248,20 +222,11 @@ function dynamicallyAddGetterForFunctions(workspace) {
     return blockList;
 };
 
+
 function dynamicallyAddGetterForDefinitions(workspace) {
-    const blockList = [{
-            'kind': 'block',
-            'type': 'define',
-        },
-        {
-            'kind': 'block',
-            'type': 'val',
-        },
-        {
-            'kind': 'block',
-            'type': 'var',
-        }
-    ];
+
+    const ignore = ['getter'];
+    const blockList = Blockly.getMainWorkspace().getToolbox().getToolboxItems().filter(t => t.name_ == "Definitions")[0].toolboxItemDef_.contents.filter(x => !ignore.some(y => y.type == x.type));
 
     // Get all the blocks in the workspace
     const defineBlocks = blockList.flatMap(x => workspace.getBlocksByType(x.type));
