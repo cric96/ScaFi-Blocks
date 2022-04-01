@@ -1170,4 +1170,26 @@
   "colour": 120,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "tuple_3_value",
+  "message0": "( %1 , %2 , %3 )",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VALUE_1"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE_2"
+    },
+    {
+      "type": "input_value",
+      "name": "VALUE_3"
+    }
+  ],
+  "output": "Tuple",
+  "colour": 290,
+  "tooltip": "",
+  "helpUrl": ""
 }]

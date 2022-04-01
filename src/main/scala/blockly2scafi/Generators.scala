@@ -89,6 +89,7 @@ object Generators {
     "values.BooleanValueBlockType",
     "values.ColorValueBlockType",
     "values.TupleValueBlockType",
+    "values.Tuple3ValueBlockType",
     "values.RandomValueBlockType",
     "values.RandomValueBetweenBlockType",
     "types.IntegerClassBlockType",
