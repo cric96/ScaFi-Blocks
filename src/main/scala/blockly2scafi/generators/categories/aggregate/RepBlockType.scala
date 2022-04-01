@@ -19,6 +19,6 @@ class RepBlockType extends ValueBlockType {
     (s"rep(${start}) { ${evolution} }", this.order)
   }
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 
 }

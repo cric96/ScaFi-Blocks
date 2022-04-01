@@ -8,7 +8,7 @@ import blockly2scafi.generators.UnitBlockType
 class OutputBlockType extends UnitBlockType {
   override def name: String = "output"
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 
   override def fieldNames: Seq[String] = Seq()
 

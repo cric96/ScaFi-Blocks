@@ -63,7 +63,7 @@ class AggregateProgramBlockType extends UnitBlockType {
     (standardImportCode + scafiImportCode + otherCode, this.order)
   }
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 
   override def inputNames: Seq[String] = Seq("AGGREGATE_PROGRAM_MAIN")
 
