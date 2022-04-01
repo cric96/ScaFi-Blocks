@@ -98,6 +98,7 @@
         <block type="color_value">
             <field name="VALUE">#ffff00</field>
         </block>
+        <block type="hsl"></block>
         <block type="tuple_value"></block>
         <block type="tuple_3_value"></block>
         <block type="random_value"></block>

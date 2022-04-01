@@ -83,21 +83,19 @@ on the right section.
 
 ## Roadmap
 
-- [ ] Retrieve blockly library from CDN.
-- [ ] Put return block by default in functions.
-- [ ] Detect return type of functions.
-- [X] Refactor FOLD operations.
-- [ ] Refactor sensors management.
+- [X] Retrieve blockly library from CDN.
+- [X] Implement `nbrRange` function.
 - [X] Built lambda constructs for REP and FOLD constructs.
 - [X] Implement `minHood` and `minHoodPlus`.
-- [ ] Implement `if` construct.
-- [ ] Implement `hsl` function.
+- [X] Refactor FOLD operations.
+- [X] Implement `hsl` function.
+- [ ] Put return block by default in functions.
+- [ ] Detect return type of functions.
+- [ ] Refactor sensors management.
 - [ ] Implement `G2` function.
 - [ ] Implement `C` function.
 - [ ] Implement `S` function.
-- [X] Implement `nbrRange` function.
 - [ ] Implement `broadcast` function.
-- [ ] Implement modulo operation.
 
 ## Contributing
 
