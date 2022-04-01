@@ -48,6 +48,7 @@
     </category>
     <category name="Operations" colour="#745ba5">
         <block type="equals"></block>
+        <block type="not"></block>
         <block type="boolean_operation">
             <field name="OPERATOR">&amp;&amp;</field>
         </block>

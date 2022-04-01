@@ -79,6 +79,7 @@ object Generators {
     "sensors.SenseBlockType",
     "actuators.LedAllToBlockType",
     "operations.EqualsBlockType",
+    "operations.NotBlockType",
     "operations.BooleanOperationBlockType",
     "operations.TernaryOperationBlockType",
     "operations.NumberCompareBlockType",

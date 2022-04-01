@@ -1192,4 +1192,19 @@
   "colour": 290,
   "tooltip": "",
   "helpUrl": ""
+},
+{
+  "type": "not",
+  "message0": "Not %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "Boolean"
+    }
+  ],
+  "output": null,
+  "colour": 260,
+  "tooltip": "",
+  "helpUrl": ""
 }]
