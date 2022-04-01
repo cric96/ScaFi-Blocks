@@ -24,7 +24,6 @@
     }
   ],
   "previousStatement": null,
-  "nextStatement": null,
   "colour": 20,
   "tooltip": "Output a value",
   "helpUrl": ""
@@ -52,7 +51,7 @@
 },
 {
   "type": "mux",
-  "message0": "Mux %1 First %2 Second %3",
+  "message0": "Mux %1 Then %2 Else %3",
   "args0": [
     {
       "type": "input_value",
@@ -194,7 +193,7 @@
 },
 {
   "type": "led_all_to",
-  "message0": "led all to %1",
+  "message0": "Led All To %1",
   "args0": [
     {
       "type": "input_value",
@@ -346,7 +345,7 @@
 },
 {
   "type": "mid",
-  "message0": "mid",
+  "message0": "Mid",
   "output": "String",
   "colour": 120,
   "tooltip": "Device Id",
@@ -354,7 +353,7 @@
 },
 {
   "type": "foldhood",
-  "message0": "foldhood %1 initial value: %2 aggregator: %3 expression: %4",
+  "message0": "FoldHood %1 Initial Value: %2 Aggregator: %3 Expression %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -379,7 +378,7 @@
 },
 {
   "type": "foldhoodplus",
-  "message0": "foldhoodPlus %1 initial value: %2 aggregator: %3 expression: %4",
+  "message0": "FoldHoodPlus %1 Initial Value: %2 Aggregator: %3 Expression: %4",
   "args0": [
     {
       "type": "input_dummy"
@@ -404,7 +403,7 @@
 },
 {
   "type": "nbr",
-  "message0": "NBR %1",
+  "message0": "Nbr %1",
   "args0": [
     {
       "type": "input_value",
@@ -418,7 +417,7 @@
 },
 {
   "type": "rep",
-  "message0": "REP %1 Initial value:  %2 Evolution:  %3",
+  "message0": "Rep %1 Initial Value:  %2 Evolution:  %3",
   "args0": [
     {
       "type": "input_dummy"
@@ -644,7 +643,7 @@
 },
 {
   "type": "equals",
-  "message0": "%1 equals %2",
+  "message0": "%1 Equals To %2",
   "args0": [
     {
       "type": "input_value",
@@ -663,7 +662,7 @@
 },
 {
   "type": "function",
-  "message0": "function %1 %2 %3",
+  "message0": "Function %1 %2 %3",
   "args0": [
     {
       "type": "field_input",
@@ -686,7 +685,7 @@
 },
 {
   "type": "function_1_param",
-  "message0": "function %1 %2  input %3 %4 of type %5 %6",
+  "message0": "Function %1 %2 Input %3 %4 Of Type %5 %6",
   "args0": [
     {
       "type": "field_input",
@@ -722,7 +721,7 @@
 },
 {
   "type": "random_value",
-  "message0": "Random number %1 from 0 to %2",
+  "message0": "Random Number %1 Between 0 And %2",
   "args0": [
     {
       "type": "input_dummy"
@@ -741,7 +740,7 @@
 },
 {
   "type": "random_value_between",
-  "message0": "Random number %1 between %2 and %3",
+  "message0": "Random Number %1 Between %2 And %3",
   "args0": [
     {
       "type": "input_dummy"
@@ -765,7 +764,7 @@
 },
 {
   "type": "val",
-  "message0": "val %1 %2",
+  "message0": "Val %1 %2",
   "args0": [
     {
       "type": "field_input",
@@ -785,7 +784,7 @@
 },
 {
   "type": "var",
-  "message0": "var %1 %2",
+  "message0": "Var %1 %2",
   "args0": [
     {
       "type": "field_input",
@@ -805,7 +804,7 @@
 },
 {
   "type": "return",
-  "message0": "return %1",
+  "message0": "Return %1",
   "args0": [
     {
       "type": "input_value",
@@ -819,7 +818,7 @@
 },
 {
   "type": "function_2_param",
-  "message0": "function %1 %2  input %3 %4 of type %5  input %6 %7 of type %8 %9",
+  "message0": "Function %1 %2 Input %3 %4 Of Type %5 Input %6 %7 Of Type %8 %9",
   "args0": [
     {
       "type": "field_input",
@@ -866,7 +865,7 @@
 },
 {
   "type": "function_3_param",
-  "message0": "function %1 %2  input %3 %4 of type %5  input %6 %7 of type %8  input %9 %10 of type %11 %12",
+  "message0": "Function %1 %2 Input %3 %4 Of Type %5 Input %6 %7 Of Type %8 Input %9 %10 Of Type %11 %12",
   "args0": [
     {
       "type": "field_input",
@@ -1079,7 +1078,7 @@
 },
 {
   "type": "lambda_1_param",
-  "message0": "lambda ( %1 %2 => %3 )",
+  "message0": "Lambda ( %1 %2 => %3 )",
   "args0": [
     {
       "type": "field_input",
@@ -1102,7 +1101,7 @@
 },
 {
   "type": "lambda_2_param",
-  "message0": "lambda ( %1 ,  %2 %3 => %4 )",
+  "message0": "Lambda ( %1 ,  %2 %3 => %4 )",
   "args0": [
     {
       "type": "field_input",
@@ -1130,7 +1129,7 @@
 },
 {
   "type": "minhood",
-  "message0": "minhood %1 expression: %2",
+  "message0": "MinHood %1 %2",
   "args0": [
     {
       "type": "input_dummy"
@@ -1148,7 +1147,7 @@
 },
 {
   "type": "minhoodplus",
-  "message0": "minhoodplus %1 expression: %2",
+  "message0": "MinHoodPlus %1 %2",
   "args0": [
     {
       "type": "input_dummy"
@@ -1166,7 +1165,7 @@
 },
 {
   "type": "nbrrange",
-  "message0": "nbrRange",
+  "message0": "NbrRange",
   "output": null,
   "colour": 120,
   "tooltip": "",
