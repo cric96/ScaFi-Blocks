@@ -21,7 +21,7 @@ class FoldHoodPlusBlockType extends ValueBlockType {
     (s"foldhoodPlus(${start})(${aggregator}) { ${expression} }", Orders.NONE)
   }
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 
 
 }

@@ -8,6 +8,11 @@
         <block type="mux"></block>
         <block type="rep">
             <field name="PREVIOUS" id="yANW!y:.,l;R6;+zv.#?">x</field>
+            <value name="EVOLUTION">
+                <block type="lambda_1_param">
+                    <field name="PARAM_NAME">prev</field>
+                </block>
+            </value>
         </block>
     </category>
     <category name="Utilities" colour="#5ba55b">
@@ -18,10 +23,26 @@
         <block type="distance_between"></block>
     </category>
     <category name="Fold" colour="#5ba58c">
-        <block type="foldhood"></block>
-        <block type="foldhoodplus"></block>
-        <block type="minhood"></block>
-        <block type="minhoodplus"></block>
+        <block type="foldhood">
+            <value name="AGGREGATOR">
+                <block type="lambda_2_param">
+                    <field name="PARAM_1_NAME">x</field>
+                    <field name="PARAM_2_NAME">y</field>
+                </block>
+            </value>
+        </block>
+        <block type="foldhoodplus">
+            <value name="AGGREGATOR">
+                <block type="lambda_2_param">
+                    <field name="PARAM_1_NAME">x</field>
+                    <field name="PARAM_2_NAME">y</field>
+                </block>
+            </value>
+        </block>
+        <block type="minhood">
+        </block>
+        <block type="minhoodplus">
+        </block>
     </category>
     <category name="Sensors" colour="#5b80a5">
         <block type="sense">

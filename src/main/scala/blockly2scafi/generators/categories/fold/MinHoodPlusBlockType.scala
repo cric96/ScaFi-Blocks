@@ -17,7 +17,7 @@ class MinHoodPlusBlockType extends ValueBlockType {
     (s"minHoodPlus { ${expression} }", Orders.NONE)
   }
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 
 
 }

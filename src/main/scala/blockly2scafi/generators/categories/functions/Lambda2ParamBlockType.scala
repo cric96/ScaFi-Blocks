@@ -1,4 +1,4 @@
-package blockly2scafi.generators.categories.aggregate
+package blockly2scafi.generators.categories.functions
 
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable.Generator
@@ -20,5 +20,5 @@ class Lambda2ParamBlockType extends ValueBlockType {
     (s"(${param1}, ${param2}) => ${call}", Orders.NONE)
   }
 
-  override def order: Order = Orders.ORDER_ATOMIC
+  override def order: Order = Orders.NONE
 }
