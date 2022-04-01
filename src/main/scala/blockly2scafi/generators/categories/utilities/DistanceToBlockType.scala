@@ -4,9 +4,9 @@ import blockly2scafi.Orders
 import blockly2scafi.Orders.Order
 import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.Generable.Generator
-import blockly2scafi.generators.UnitBlockType
+import blockly2scafi.generators.ValueBlockType
 
-class DistanceToBlockType extends UnitBlockType {
+class DistanceToBlockType extends ValueBlockType {
   override def name: String = "distance_to"
 
   override def order: Order = Orders.ORDER_ATOMIC

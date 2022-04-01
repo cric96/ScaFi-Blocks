@@ -15,7 +15,7 @@ class DefineBlockType extends UnitBlockType {
   override def generator: Generator = (block: Block) => {
     val defName = block.getFieldValue("NAME")
     val input = Blockly.ScaFi.valueToCode(block, "VALUE", Orders.ORDER_NONE);
-    (s"${name} ${defName} = ${input}", Orders.NONE)
+    (s"def ${defName}: ${input}", Orders.NONE)
   }
 
   override def name: String = "define"
