@@ -46,7 +46,7 @@
   "inputsInline": true,
   "output": null,
   "colour": 210,
-  "tooltip": "",
+  "tooltip": "Get the value of a sensor",
   "helpUrl": ""
 },
 {
@@ -69,7 +69,7 @@
   ],
   "output": null,
   "colour": 65,
-  "tooltip": "",
+  "tooltip": "Condition without branching",
   "helpUrl": ""
 },
 {
@@ -107,7 +107,7 @@
   "inputsInline": true,
   "output": "Boolean",
   "colour": 260,
-  "tooltip": "",
+  "tooltip": "Boolean operation",
   "helpUrl": ""
 },
 {
@@ -364,7 +364,8 @@
     },
     {
       "type": "input_value",
-      "name": "AGGREGATOR"
+      "name": "AGGREGATOR",
+      "check": "Lambda2"
     },
     {
       "type": "input_value",
@@ -389,7 +390,8 @@
     },
     {
       "type": "input_value",
-      "name": "AGGREGATOR"
+      "name": "AGGREGATOR",
+      "check": "Lambda2"
     },
     {
       "type": "input_value",
@@ -428,7 +430,8 @@
     },
     {
       "type": "input_value",
-      "name": "EVOLUTION"
+      "name": "EVOLUTION",
+      "check": "Lambda1"
     }
   ],
   "output": null,
@@ -540,7 +543,7 @@
       "text": "1"
     }
   ],
-  "output": null,
+  "output": "Number",
   "colour": 290,
   "tooltip": "",
   "helpUrl": ""
@@ -1094,7 +1097,7 @@
     }
   ],
   "inputsInline": true,
-  "output": null,
+  "output": "Lambda1",
   "colour": 20,
   "tooltip": "",
   "helpUrl": ""
@@ -1122,7 +1125,7 @@
     }
   ],
   "inputsInline": true,
-  "output": null,
+  "output": "Lambda2",
   "colour": 20,
   "tooltip": "",
   "helpUrl": ""
@@ -1166,7 +1169,7 @@
 {
   "type": "nbrrange",
   "message0": "NbrRange",
-  "output": null,
+  "output": "Number",
   "colour": 120,
   "tooltip": "",
   "helpUrl": ""
@@ -1203,7 +1206,7 @@
       "check": "Boolean"
     }
   ],
-  "output": null,
+  "output": "Boolean",
   "colour": 260,
   "tooltip": "",
   "helpUrl": ""
@@ -1247,7 +1250,7 @@
     }
   ],
   "inputsInline": true,
-  "output": "Tuple",
+  "output": "Color",
   "colour": 290,
   "tooltip": "",
   "helpUrl": ""

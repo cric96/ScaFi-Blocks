@@ -21,6 +21,6 @@ class Function2ParamBlockType extends UnitBlockType {
     val param2 = block.getFieldValue("PARAM_2_NAME")
     val param2type = Blockly.ScaFi.valueToCode(block, "PARAM_2_TYPE", Orders.ORDER_NONE)
     val code = Blockly.ScaFi.statementToCode(block, "BODY")
-    (s"def ${definition}(${param1}: ${param1type}, ${param2}: ${param2type}):\n${code}\n", Orders.NONE)
+    (s"def ${definition}(${param1}: ${param1type}, ${param2}: ${param2type}) = {\n${code}\n}", Orders.NONE)
   }
 }

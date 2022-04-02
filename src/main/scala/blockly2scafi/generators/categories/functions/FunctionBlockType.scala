@@ -17,6 +17,6 @@ class FunctionBlockType extends UnitBlockType {
   override def generator: Generator = (block: Block) => {
     val definition = block.getFieldValue("FUNCTION_NAME");
     val code = Blockly.ScaFi.statementToCode(block, "BODY");
-    (s"def ${definition}:\n${code}\n", Orders.NONE)
+    (s"def ${definition} = {\n${code}\n}", Orders.NONE)
   }
 }
