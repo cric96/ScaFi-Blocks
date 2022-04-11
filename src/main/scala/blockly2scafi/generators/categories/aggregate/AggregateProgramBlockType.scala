@@ -11,10 +11,12 @@ class AggregateProgramBlockType extends UnitBlockType {
     "random_value_between" -> Seq("scala.util.Random")
   )
   private val scafiImportMap = Map(
-    "distance_to" -> Seq("StandardSensors", "BlockG"),
-    "distance_between" -> Seq("StandardSensors", "BlockG"),
+    "distance_to" -> Seq("BlockG"),
+    "distance_between" -> Seq("BlockG"),
     "channel" -> Seq("StandardSensors", "BlockG"),
-    "distance_between" -> Seq("Actuation")
+    "nbrrange" -> Seq("StandardSensors"),
+    "hsl" -> Seq("Actuation"),
+    "led_all_to" -> Seq("Actuation"),
   )
 
   override def name: String = "aggregate_program"
@@ -51,7 +53,7 @@ class AggregateProgramBlockType extends UnitBlockType {
 
     val standardImportCode = standardImportSet
       .map {
-        "import " + _ + ";"
+        "import " + _
       }
       .mkString("\n") + "\n"
 

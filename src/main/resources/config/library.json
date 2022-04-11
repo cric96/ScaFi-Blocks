@@ -291,11 +291,7 @@
   "args0": [
     {
       "type": "input_value",
-      "name": "FIRST",
-      "check": [
-        "Double",
-        "Integer"
-      ]
+      "name": "FIRST"
     },
     {
       "type": "field_dropdown",
@@ -328,11 +324,7 @@
     },
     {
       "type": "input_value",
-      "name": "SECOND",
-      "check": [
-        "Double",
-        "Integer"
-      ]
+      "name": "SECOND"
     }
   ],
   "output": [
@@ -543,7 +535,7 @@
       "text": "1"
     }
   ],
-  "output": "Number",
+  "output": "Integer",
   "colour": 290,
   "tooltip": "",
   "helpUrl": ""

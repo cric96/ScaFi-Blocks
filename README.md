@@ -88,9 +88,7 @@ on the right section.
 - [ ] Implement `S` function.
 - [ ] Implement `broadcast` function.
 - [ ] Check required import for each block.
-- [ ] Fix random number between block.
 - [ ] Detect return type of functions.
-- [ ] Add defaults block.
 
 ## Contributing
 

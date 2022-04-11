@@ -15,7 +15,7 @@ class RandomValueBetweenBlockType extends ValueBlockType {
   override def generator: Generator = (block) => {
     val min = Blockly.ScaFi.valueToCode(block, "MIN", Orders.NONE)
     val max = Blockly.ScaFi.valueToCode(block, "MAX", Orders.NONE)
-    (s"${min} + new Random().nextInt( (${max} - ${min}) + 1 )  ", this.order)
+    (s"${min} + Random.nextInt( (${max} - ${min}) + 1 )  ", this.order)
   }
 
   override def order: Order = Orders.ORDER_ATOMIC
