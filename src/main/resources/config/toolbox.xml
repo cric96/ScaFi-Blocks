@@ -18,9 +18,82 @@
     <category name="Utilities" colour="#5ba55b">
         <block type="mid"></block>
         <block type="nbrrange"></block>
-        <block type="distance_to"></block>
-        <block type="channel"></block>
-        <block type="distance_between"></block>
+        <block type="distance_to">
+            <value name="SRC">
+                <block type="sense">
+                    <value name="TYPE">
+                        <block type="class_boolean">
+                            <field name="NAME">Boolean</field>
+                        </block>
+                    </value>
+                    <value name="SENSOR_NAME">
+                        <block type="string_value">
+                            <field name="VALUE">source</field>
+                        </block>
+                    </value>
+                </block>
+            </value>
+        </block>
+        <block type="channel">
+            <value name="SOURCE">
+                <block type="sense">
+                    <value name="TYPE">
+                        <block type="class_boolean">
+                            <field name="NAME">Boolean</field>
+                        </block>
+                    </value>
+                    <value name="SENSOR_NAME">
+                        <block type="string_value">
+                            <field name="VALUE">source</field>
+                        </block>
+                    </value>
+                </block>
+            </value>
+            <value name="TARGET">
+                <block type="sense">
+                    <value name="TYPE">
+                        <block type="class_boolean">
+                            <field name="NAME">Boolean</field>
+                        </block>
+                    </value>
+                    <value name="SENSOR_NAME">
+                        <block type="string_value">
+                            <field name="VALUE">target</field>
+                        </block>
+                    </value>
+                </block>
+            </value>
+        </block>
+        <block type="distance_between">
+            <value name="SOURCE">
+                <block type="sense">
+                    <value name="TYPE">
+                        <block type="class_boolean">
+                            <field name="NAME">Boolean</field>
+                        </block>
+                    </value>
+                    <value name="SENSOR_NAME">
+                        <block type="string_value">
+                            <field name="VALUE">source</field>
+                        </block>
+                    </value>
+                </block>
+            </value>
+            <value name="TARGET">
+                <block type="sense">
+                    <value name="TYPE">
+                        <block type="class_boolean">
+                            <field name="NAME">Boolean</field>
+                        </block>
+                    </value>
+                    <value name="SENSOR_NAME">
+                        <block type="string_value">
+                            <field name="VALUE">target</field>
+                        </block>
+                    </value>
+                </block>
+            </value>
+        </block>
     </category>
     <category name="Fold" colour="#5ba58c">
         <block type="foldhood">
@@ -101,8 +174,25 @@
         <block type="hsl"></block>
         <block type="tuple_value"></block>
         <block type="tuple_3_value"></block>
-        <block type="random_value"></block>
-        <block type="random_value_between"></block>
+        <block type="random_value">
+            <value name="MAX">
+                <block type="integer_value">
+                    <field name="VALUE">100</field>
+                </block>
+            </value>
+        </block>
+        <block type="random_value_between">
+            <value name="MIN">
+                <block type="integer_value">
+                        <field name="VALUE">10</field>
+                    </block>
+            </value>
+            <value name="MAX">
+                <block type="integer_value">
+                        <field name="VALUE">100</field>
+                    </block>
+            </value>
+        </block>
     </category>
     <category name="Types" colour="#a55b80">
         <block type="class_integer">

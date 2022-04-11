@@ -90,6 +90,7 @@ on the right section.
 - [ ] Check required import for each block.
 - [ ] Fix random number between block.
 - [ ] Detect return type of functions.
+- [ ] Add defaults block.
 
 ## Contributing
 
