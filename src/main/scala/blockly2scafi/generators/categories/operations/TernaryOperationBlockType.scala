@@ -18,7 +18,7 @@ class TernaryOperationBlockType extends ValueBlockType {
     val condition = Blockly.ScaFi.valueToCode(block, "CONDITION", Orders.NONE)
     val _then = Blockly.ScaFi.valueToCode(block, "THEN", Orders.NONE)
     val _else = Blockly.ScaFi.valueToCode(block, "ELSE", Orders.NONE)
-    (s"$condition ? ${_then} : ${_else}", Orders.NONE)
+    (s"if ($condition) ${_then} else ${_else}", Orders.NONE)
   }
 
 }
