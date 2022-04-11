@@ -1,9 +1,9 @@
 package blockly2scafi.generators.categories.values
 
-import blockly2scafi.Orders
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
+import blockly2scafi.{Blockly, Orders}
 
 class HslBlockType extends ValueBlockType {
   override def name: String = "hsl"
@@ -13,9 +13,9 @@ class HslBlockType extends ValueBlockType {
   override def inputNames: Seq[String] = Seq()
 
   override def generator: Generator = (block) => {
-    val h = block.getFieldValue("VALUE_1")
-    val s = block.getFieldValue("VALUE_2")
-    val l = block.getFieldValue("VALUE_3")
+    val h = Blockly.ScaFi.valueToCode(block, "VALUE_1", this.order)
+    val s = Blockly.ScaFi.valueToCode(block, "VALUE_2", this.order)
+    val l = Blockly.ScaFi.valueToCode(block, "VALUE_3", this.order)
 
     (s"hsl(${h}, ${s}, ${l})", this.order)
   }

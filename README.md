@@ -87,8 +87,6 @@ on the right section.
 - [ ] Implement `C` function.
 - [ ] Implement `S` function.
 - [ ] Implement `broadcast` function.
-- [ ] Check required import for each block.
-- [ ] Detect return type of functions.
 
 ## Contributing
 

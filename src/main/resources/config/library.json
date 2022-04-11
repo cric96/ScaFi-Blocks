@@ -1205,40 +1205,19 @@
 },
 {
   "type": "hsl",
-  "message0": "Hsl ( %1 %2 , %3 %4 , %5 %6 )",
+  "message0": "Hsl ( %1 , %2 , %3 )",
   "args0": [
     {
-      "type": "field_number",
-      "name": "VALUE_1",
-      "value": 0,
-      "min": 0,
-      "max": 255,
-      "precision": 1
+      "type": "input_value",
+      "name": "VALUE_1"
     },
     {
-      "type": "input_dummy"
+      "type": "input_value",
+      "name": "VALUE_2"
     },
     {
-      "type": "field_number",
-      "name": "VALUE_2",
-      "value": 0,
-      "min": 0,
-      "max": 255,
-      "precision": 1
-    },
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "field_number",
-      "name": "VALUE_3",
-      "value": 0,
-      "min": 0,
-      "max": 255,
-      "precision": 1
-    },
-    {
-      "type": "input_dummy"
+      "type": "input_value",
+      "name": "VALUE_3"
     }
   ],
   "inputsInline": true,

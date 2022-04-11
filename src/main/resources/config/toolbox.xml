@@ -171,7 +171,23 @@
         <block type="color_value">
             <field name="VALUE">#ffff00</field>
         </block>
-        <block type="hsl"></block>
+        <block type="hsl">
+            <value name="VALUE_1">
+                <block type="integer_value">
+                    <field name="VALUE">128</field>
+                </block>
+            </value>
+            <value name="VALUE_2">
+                <block type="integer_value">
+                    <field name="VALUE">128</field>
+                </block>
+            </value>
+            <value name="VALUE_3">
+                <block type="integer_value">
+                    <field name="VALUE">128</field>
+                </block>
+            </value>
+        </block>
         <block type="tuple_value"></block>
         <block type="tuple_3_value"></block>
         <block type="random_value">
