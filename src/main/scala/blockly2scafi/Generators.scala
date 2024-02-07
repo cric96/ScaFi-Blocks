@@ -15,4 +15,4 @@ object Generators:
   end addAllGeneratorsToBlockly
 
   inline val basePath: "blockly2scafi.generators.categories" = "blockly2scafi.generators.categories"
-end Generators
+
