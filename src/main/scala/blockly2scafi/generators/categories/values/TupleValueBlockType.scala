@@ -6,7 +6,7 @@ import blockly2scafi.generables.code.GenerableMultiInput
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
 
-class TupleValueBlockType extends ValueBlockType {
+class TupleValueBlockType extends ValueBlockType:
   override def name: String = "tuple_value"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -23,4 +23,3 @@ class TupleValueBlockType extends ValueBlockType {
     .withAppend(")")
     .build
     .generator
-}

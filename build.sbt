@@ -1,9 +1,5 @@
-import Dependencies._
-
-ThisBuild / scalaVersion     := "2.12.10"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "MatteoCerioni"
-ThisBuild / organizationName := "MatteoCerioni"
+scalaVersion     := "3.3.1"
+version          := "0.1.0-SNAPSHOT"
 
 lazy val root = (project in file("."))
   .enablePlugins(ScalaJSPlugin)
@@ -11,10 +7,11 @@ lazy val root = (project in file("."))
   .settings(
     name := "blockly2scafi",
     scalaJSUseMainModuleInitializer := true,
-    libraryDependencies += scalaTest % Test,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "1.0.0",
-    libraryDependencies += "org.reflections" % "reflections" % "0.10.2"
-
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % Test,
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "2.8.0",
+    //libraryDependencies += "org.reflections" % "reflections" % "0.10.2"
   )
 
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
+ThisBuild / semanticdbEnabled := true
+ThisBuild / semanticdbVersion := scalafixSemanticdb.revision

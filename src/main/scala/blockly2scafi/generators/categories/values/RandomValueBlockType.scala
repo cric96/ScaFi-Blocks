@@ -6,7 +6,7 @@ import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
 
-class RandomValueBlockType extends ValueBlockType {
+class RandomValueBlockType extends ValueBlockType:
   override def name: String = "random_value"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -21,4 +21,3 @@ class RandomValueBlockType extends ValueBlockType {
     .withAppend(")")
     .build
     .generator
-}

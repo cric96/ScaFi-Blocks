@@ -6,7 +6,7 @@ import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.UnitBlockType
 
-class ReturnBlockType extends UnitBlockType {
+class ReturnBlockType extends UnitBlockType:
   override def name: String = "return"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -19,4 +19,3 @@ class ReturnBlockType extends UnitBlockType {
     .withInputName("RETURN")
     .build
     .generator
-}

@@ -6,7 +6,7 @@ import blockly2scafi.generables.field.GenerableField
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
 
-class GetterBlockType extends ValueBlockType {
+class GetterBlockType extends ValueBlockType:
   override def name: String = "getter"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -19,6 +19,3 @@ class GetterBlockType extends ValueBlockType {
     .withFieldName("NAME")
     .build
     .generator
-
-
-}

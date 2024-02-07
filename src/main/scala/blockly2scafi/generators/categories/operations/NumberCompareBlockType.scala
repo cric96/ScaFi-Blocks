@@ -3,9 +3,9 @@ package blockly2scafi.generators.categories.operations
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
-import blockly2scafi.{Block, Blockly, Orders}
+import blockly2scafi.{ Block, Blockly, Orders }
 
-class NumberCompareBlockType extends ValueBlockType {
+class NumberCompareBlockType extends ValueBlockType:
   override def name: String = "number_compare"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -14,27 +14,27 @@ class NumberCompareBlockType extends ValueBlockType {
 
   override def inputNames: Seq[String] = Seq("FIRST", "SECOND")
 
-  override def generator: Generator = (block: Block) => {
+  override def generator: Generator = (block: Block) =>
     val operation = block.getFieldValue("OPERATOR")
 
     var operator: String = ""
     var order: Order = Orders.NONE
-    if (operation == "GREATER") {
+    if (operation == "GREATER")
       operator = " > "
       order = Orders.ORDER_RELATIONAL
-    } else if (operation == "GREATER_OR_EQUAL") {
+    else if (operation == "GREATER_OR_EQUAL")
       operator = " >= "
       order = Orders.ORDER_RELATIONAL
-    } else if (operation == "EQUAL") {
+    else if (operation == "EQUAL")
       operator = " == "
       order = Orders.ORDER_EQUALITY
-    } else if (operation == "NOT_EQUAL") {
+    else if (operation == "NOT_EQUAL")
       operator = " != "
       order = Orders.ORDER_EQUALITY
-    } else if (operation == "LESS_OR_EQUAL") {
+    else if (operation == "LESS_OR_EQUAL")
       operator = " <= "
       order = Orders.ORDER_RELATIONAL
-    } else { //LESS
+    else { // LESS
       operator = " < "
       order = Orders.ORDER_RELATIONAL
     }
@@ -43,6 +43,4 @@ class NumberCompareBlockType extends ValueBlockType {
     val code = first + operator + second
 
     (code, order)
-  }
-
-}
+end NumberCompareBlockType

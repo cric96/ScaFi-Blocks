@@ -5,7 +5,7 @@ import blockly2scafi.Orders.Order
 import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.UnitBlockType
 
-class OutputBlockType extends UnitBlockType {
+class OutputBlockType extends UnitBlockType:
   override def name: String = "output"
 
   override def order: Order = Orders.NONE
@@ -18,5 +18,3 @@ class OutputBlockType extends UnitBlockType {
     .withInputName("OUTPUT_VALUE")
     .build
     .generator
-
-}

@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/alemazzo/blockly2scafi">
-    <img src="https://github.com/alemazzo/blockly2scafi/blob/master/blockly2scafi.png" alt="Logo" width="300" height="300">
+    <img src="https://github.com/alemazzo/blockly2scafi/blob/master/scafiblocks.png" alt="Logo" width="300" height="300">
   </a>
 
 <h3 align="center">blockly2scafi</h3>

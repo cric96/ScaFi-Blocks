@@ -5,7 +5,7 @@ import blockly2scafi.Orders.Order
 import blockly2scafi.generables.code.GenerableInput
 import blockly2scafi.generators.ValueBlockType
 
-class NbrBlockType extends ValueBlockType {
+class NbrBlockType extends ValueBlockType:
   override def name: String = "nbr"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -20,4 +20,3 @@ class NbrBlockType extends ValueBlockType {
     .withAppend(" }")
     .build
     .generator
-}

@@ -6,7 +6,7 @@ import blockly2scafi.generables.field.GenerableField
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
 
-class ColorValueBlockType extends ValueBlockType {
+class ColorValueBlockType extends ValueBlockType:
   override def name: String = "color_value"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -21,4 +21,3 @@ class ColorValueBlockType extends ValueBlockType {
     .withAppend("\"")
     .build
     .generator
-}

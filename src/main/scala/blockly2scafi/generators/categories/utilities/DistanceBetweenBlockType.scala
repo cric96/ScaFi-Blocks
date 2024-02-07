@@ -6,7 +6,7 @@ import blockly2scafi.generables.code.GenerableMultiInput
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
 
-class DistanceBetweenBlockType extends ValueBlockType {
+class DistanceBetweenBlockType extends ValueBlockType:
   override def name: String = "distance_between"
 
   override def order: Order = Orders.ORDER_ATOMIC
@@ -23,5 +23,3 @@ class DistanceBetweenBlockType extends ValueBlockType {
     .withJoin(", ")
     .build
     .generator
-
-}
