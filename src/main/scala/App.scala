@@ -19,20 +19,20 @@ object App:
   val valueBlockTypes = GeneratorsList.searchByType[ValueBlockType]("blockly2scafi.generators.categories")
   val unitBlockType = GeneratorsList.searchByType[UnitBlockType]("blockly2scafi.generators.categories")
   def main(args: Array[String]): Unit =
-    this.setupWorkspace
-    this.setupGenerators
+    this.setupWorkspace()
+    this.setupGenerators()
 
   /**
    * Setup the blockly editor and the generated code area.
    */
-  def setupWorkspace: Unit =
-    val toolboxElement = document getElementById Configuration.toolboxCodeId
-    val blocklyEditorElement = document getElementById Configuration.blocklyEditorId
-    val generatedCodeElement = document getElementById Configuration.generatedCodeId
+  def setupWorkspace(): Unit =
+    val toolboxElement = document.getElementById(Configuration.toolboxCodeId)
+    val blocklyEditorElement = document.getElementById(Configuration.blocklyEditorId)
+    val generatedCodeElement = document.getElementById(Configuration.generatedCodeId)
     val workspace = Blockly.createBlockly2ScafiWorkspace(blocklyEditorElement)
 
     workspace.addChangeListener(() => generatedCodeElement.textContent = Blockly.ScaFi.workspaceToCode(workspace))
 
-  def setupGenerators: Unit =
+  def setupGenerators(): Unit =
     Generators.addAllGeneratorsToBlockly()
 end App
