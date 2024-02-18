@@ -1,9 +1,9 @@
-package blockly2scafi.generators.categories.sensors
+package blockly2scafi.generators.categories.basic
 
 import blockly2scafi.Orders.Order
 import blockly2scafi.generators.Generable.Generator
 import blockly2scafi.generators.ValueBlockType
-import blockly2scafi.{ Blockly, Orders }
+import blockly2scafi.{Blockly, Orders}
 
 class SenseBlockType extends ValueBlockType:
   override def name: String = "sense"

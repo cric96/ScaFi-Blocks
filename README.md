@@ -110,7 +110,7 @@ contributions you make are **greatly appreciated**.
 
 - **[index.html](src/main/resources/index.html)** contains the layout of the web page of blockly2scafi, styled by the
   css file **[main.css](src/main/resources/main.css)**.
-- **[blockly2scafi.js](src/main/resources/blockly2scafi.js)** implements some of the facade methods used by Scala to
+- **[blockly2scafi.js](src/main/resources/scafi-blocks-utils.js)** implements some of the facade methods used by Scala to
   initializes the blocky workspace and also for generating the ScaFi code.
 
 ### How to add or edit blocks

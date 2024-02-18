@@ -338,9 +338,18 @@
 {
   "type": "mid",
   "message0": "Mid",
-  "output": "String",
+  "output": "Integer",
   "colour": 120,
   "tooltip": "Device Id",
+  "helpUrl": ""
+},
+
+{
+  "type": "leaderElection",
+  "message0": "LeaderElection",
+  "output": "Boolean",
+  "colour": 120,
+  "tooltip": "A Random Leader Election",
   "helpUrl": ""
 },
 {
