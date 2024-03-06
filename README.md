@@ -8,11 +8,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/alemazzo/blockly2scafi">
-    <img src="https://github.com/alemazzo/blockly2scafi/blob/master/scafiblocks.png" alt="Logo" width="300" height="300">
+  <a href="https://github.com/cric96/ScaFi-Blocks">
+    <img src="https://github.com/cric96/ScaFi-Blocks/blob/master/scafiblocks.png?raw=true" alt="Logo" width="300" height="300">
   </a>
 
-<h3 align="center">blockly2scafi</h3>
+<h3 align="center">ScaFi-Blocks</h3>
 
   <p align="center">
     A <a href="https://developers.google.com/blockly/">Blockly</a> environment developed in <a href="http://www.scala-js.org/">Scala.js</a> with a custom code generator for <a href="https://scafi.github.io/">ScaFi</a>.
