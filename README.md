@@ -17,7 +17,7 @@
   <p align="center">
     A <a href="https://developers.google.com/blockly/">Blockly</a> environment developed in <a href="http://www.scala-js.org/">Scala.js</a> with a custom code generator for <a href="https://scafi.github.io/">ScaFi</a>.
     <br />
-    <a href="https://alemazzo.github.io/blockly2scafi/"><strong>Try it in Github pages</strong></a>
+    <a href="https://cric96.github.io/ScaFi-Blocks//"><strong>Try it in Github pages</strong></a>
     <br />
     <br />
   </p>
@@ -135,8 +135,6 @@ contributions you make are **greatly appreciated**.
 Distributed under the MIT License. See [LICENSE](https://github.com/cric96/ScaFi-Blocks/blob/main/LICENSE) for more
 information.
 
-<!-- CONTACT -->
-
 ## Contact
 
 Project Link: [https://github.com/cric96/ScaFi-Blocks](https://github.com/cric96/ScaFi-Blocks/)
@@ -144,7 +142,8 @@ Project Link: [https://github.com/cric96/ScaFi-Blocks](https://github.com/cric96
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
-
+* [Gianluca Aguzzi](https://github.com/cric96)
+* [Matteo Cerioni](https://github.com/matteo-cerioni)
 * [Alessandro Mazzoli](https://www.linkedin.com/in/alessandro-mazzoli-009868140/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
