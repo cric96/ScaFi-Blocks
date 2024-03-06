@@ -18,7 +18,9 @@ jobs:
       - name: Create Folder
         run: |
           mkdir site
-          cp -r * site
+          cp -r src/ site/
+          cp -r target/ site/
+          cp index.html site/
           rm -rf site/.git
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
