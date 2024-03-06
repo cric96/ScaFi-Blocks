@@ -10,11 +10,13 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Setup Scala 🔧
         uses: olafurpg/setup-scala@v11
         with:
           java-version: adopt@1.11
 
+      - name: Build 🏗️
+        run: sbt clean compile fullOptJS
       - name: Create Folder
         run: |
           mkdir site
