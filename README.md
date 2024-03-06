@@ -45,7 +45,7 @@
 
 ## About The Project
 
-blockly2scafi is a Blockly environment developed in Scala.js with a custom code generator for ScaFi.
+ScaFi-Blocks is a Blockly environment developed in Scala.js with a custom code generator for ScaFi.
 
 ### Built With
 
@@ -87,7 +87,7 @@ contributions you make are **greatly appreciated**.
 
 #### Config folder
 
-- **[config/library.xml](src/main/resources/config/library.xml)** is not used by blockly2scafi, it's the
+- **[config/library.xml](src/main/resources/config/library.xml)** is not used by ScaFi-Blocks, it's the
   exported [Blockly Developer Tools](https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#) library.
 - **[config/library.json](src/main/resources/config/library.json)** contains the exported blocks definitions in JSON
   format. It's used to create the workspace.
@@ -98,9 +98,9 @@ contributions you make are **greatly appreciated**.
 
 #### Resource folder
 
-- **[index.html](src/main/resources/index.html)** contains the layout of the web page of blockly2scafi, styled by the
+- **[index.html](src/main/resources/index.html)** contains the layout of the web page of ScaFi-Blocks, styled by the
   css file **[main.css](src/main/resources/main.css)**.
-- **[blockly2scafi.js](src/main/resources/scafi-blocks-utils.js)** implements some of the facade methods used by Scala to
+- **[scafi-blocks-utils.js](src/main/resources/scafi-blocks-utils.js)** implements some of the facade methods used by Scala to
   initializes the blocky workspace and also for generating the ScaFi code.
 
 ### How to add or edit blocks
