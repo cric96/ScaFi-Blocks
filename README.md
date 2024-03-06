@@ -33,7 +33,6 @@
     * [Prerequisites](#prerequisites)
     * [Installation](#installation)
 * [Usage](#usage)
-* [Roadmap](#roadmap)
 * [Contributing](#contributing)
     * [Project Structure](#project-structure)
     * [Add or edit blocks](#how-to-add-or-edit-blocks)
