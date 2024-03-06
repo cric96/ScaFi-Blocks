@@ -436,7 +436,6 @@
     "tooltip": "Device Id",
     "helpUrl": ""
   },
-
   {
     "type": "leaderElection",
     "message0": "LeaderElection",
