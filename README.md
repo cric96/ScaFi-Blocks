@@ -79,15 +79,6 @@ sbt fullOptJS
 Drag and drop the blocks from the relative categories in the toolbox to create an aggregate program that will be display
 on the right section.
 
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [ ] Implement `G2` function.
-- [ ] Implement `C` function.
-- [ ] Implement `S` function.
-- [ ] Implement `broadcast` function.
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any
@@ -142,14 +133,14 @@ contributions you make are **greatly appreciated**.
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/alemazzo/blockly2scafi/blob/main/LICENSE) for more
+Distributed under the MIT License. See [LICENSE](https://github.com/cric96/ScaFi-Blocks/blob/main/LICENSE) for more
 information.
 
 <!-- CONTACT -->
 
 ## Contact
 
-Project Link: [https://github.com/alemazzo/blockly2scafi](https://github.com/alemazzo/blockly2scafi/)
+Project Link: [https://github.com/cric96/ScaFi-Blocks](https://github.com/cric96/ScaFi-Blocks/)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -160,22 +151,22 @@ Project Link: [https://github.com/alemazzo/blockly2scafi](https://github.com/ale
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/alemazzo/blockly2scafi.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/cric96/ScaFi-Blocks.svg?style=flat-square
 
-[contributors-url]: https://github.com/alemazzo/blockly2scafi/graphs/contributors
+[contributors-url]: https://github.com/cric96/ScaFi-Blocks/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/alemazzo/blockly2scafi.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/cric96/ScaFi-Blocks.svg?style=flat-square
 
-[forks-url]: https://github.com/alemazzo/blockly2scafi/network/members
+[forks-url]: https://github.com/cric96/ScaFi-Blocks/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/alemazzo/blockly2scafi.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/cric96/ScaFi-Blocks.svg?style=flat-square
 
-[stars-url]: https://github.com/alemazzo/blockly2scafi/stargazers
+[stars-url]: https://github.com/cric96/ScaFi-Blocks/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/alemazzo/blockly2scafi.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/cric96/ScaFi-Blocks.svg?style=flat-square
 
-[issues-url]: https://github.com/alemazzo/blockly2scafi/issues
+[issues-url]: https://github.com/cric96/ScaFi-Blocks/issues
 
-[license-shield]: https://img.shields.io/github/license/alemazzo/blockly2scafi.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/cric96/ScaFi-Blocks.svg?style=flat-square
 
-[license-url]: https://github.com/alemazzo/blockly2scafi/blob/master/LICENSE.
+[license-url]: https://github.com/cric96/ScaFi-Blocks/blob/master/LICENSE.
