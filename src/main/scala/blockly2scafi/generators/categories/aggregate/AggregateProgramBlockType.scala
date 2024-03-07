@@ -29,7 +29,7 @@ class AggregateProgramBlockType extends UnitBlockType:
 
   private val scafiImportMap = Map(
     "distance_to" -> Seq("BlockG", "StandardSensors"),
-    "distance_between" -> Seq("BlockG"),
+    "distance_between" -> Seq("BlockG", "StandardSensors"),
     "channel" -> Seq("StandardSensors", "BlockG"),
     "leaderElection" -> Seq("StandardSensors", "BlockS"),
     "nbrrange" -> Seq("StandardSensors"),
